@@ -66,6 +66,14 @@ a {
   .about-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
 }
 
+@media (max-width: 900px) {
+  .service-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+@media (max-width: 520px) {
+  .service-cards-grid { grid-template-columns: 1fr !important; }
+}
+
 @media (max-width: 720px) {
   .testimonials-grid { grid-template-columns: 1fr !important; }
 }
