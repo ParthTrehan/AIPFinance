@@ -89,8 +89,20 @@ a {
 
 /* Logo carousel / marquee */
 .logo-marquee-section {
-  background: transparent;
-  padding: 36px 0;
+  background: #F8FAFB;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 28px 0;
+}
+.logo-marquee-label {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  margin: 0 0 20px;
 }
 .logo-marquee {
   overflow: hidden;

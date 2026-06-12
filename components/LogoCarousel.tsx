@@ -27,8 +27,9 @@ export default function LogoCarousel({ logos = DEFAULT_LOGOS }: { logos?: Logo[]
 
   return (
     <section className="logo-marquee-section">
+      <p className="logo-marquee-label">Lenders we work with</p>
       <div className="max-w-6xl mx-auto px-6 logo-marquee">
-        <div className="logo-track" aria-hidden="false">
+        <div className="logo-track">
           {looped.map((l, i) => (
             <div className="logo-item" key={`${l.alt || i}-${i}`}>
               <img src={l.src} alt={l.alt || `logo-${i}`} loading="lazy" />

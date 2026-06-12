@@ -30,7 +30,7 @@ const items = [
 
 export default function TrustBar() {
   return (
-    <section style={{ backgroundColor: "#ffffff", padding: "48px 24px" }}>
+    <section style={{ backgroundColor: "#ffffff", padding: "36px 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div
           style={{
