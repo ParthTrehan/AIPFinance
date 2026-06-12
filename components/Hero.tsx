@@ -9,7 +9,7 @@ export default function Hero() {
     <section
       style={{
         backgroundColor: "#0F2B5B",
-        paddingTop: 128,
+        paddingTop: 151,
       }}
     >
       {/* Main content */}
