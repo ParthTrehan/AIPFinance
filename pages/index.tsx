@@ -24,8 +24,8 @@ export default function Home() {
       </Head>
       <Header />
       <Hero />
-      <TrustBar />
       <ServiceCards />
+      <TrustBar />
       <LogoCarousel />
       <IntroStory />
       <Services />
