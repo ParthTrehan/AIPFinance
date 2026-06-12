@@ -2,19 +2,19 @@ import React from "react";
 
 const DEFAULT_LOGOS = [
   {
-    src: "/logos/anz-logo.jpg",
+    src: "/AIPFinance/logos/anz-logo.jpg",
     alt: "ANZ",
   },
   {
-    src: "/logos/westpac-logo.jpg",
+    src: "/AIPFinance/logos/westpac-logo.jpg",
     alt: "Westpac",
   },
   {
-    src: "/logos/nab-logo.svg",
+    src: "/AIPFinance/logos/nab-logo.svg",
     alt: "NAB",
   },
   {
-    src: "/logos/commbank-logo.svg",
+    src: "/AIPFinance/logos/commbank-logo.svg",
     alt: "Commonwealth Bank",
   },
 ];
