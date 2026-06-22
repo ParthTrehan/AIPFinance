@@ -2,14 +2,38 @@ import { useEffect } from "react";
 
 export default function Booking() {
   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
     const win = window as any;
-    const el = document.getElementById("calendly-embed");
-    if (win.Calendly && el) {
-      win.Calendly.initInlineWidget({
-        url: "https://calendly.com/aipfinance/consultation",
-        parentElement: el,
-      });
-    }
+    const el = document.getElementById('calendly-embed');
+
+    const initCalendly = () => {
+      if (win.Calendly && el) {
+        win.Calendly.initInlineWidget({
+          url: 'https://calendly.com/aipfinance/consultation?hide_gdpr_banner=1',
+          parentElement: el,
+        });
+      }
+    };
+
+    script.addEventListener('load', initCalendly);
+    // Try to init in case Calendly already loaded
+    initCalendly();
+
+    const onMessage = (e: MessageEvent) => {
+      if (e.data?.event === 'calendly.event_scheduled') {
+        console.log('Calendly event scheduled', e.data);
+      }
+    };
+    window.addEventListener('message', onMessage);
+
+    return () => {
+      script.removeEventListener('load', initCalendly);
+      window.removeEventListener('message', onMessage);
+    };
   }, []);
 
   return (
@@ -41,7 +65,7 @@ export default function Booking() {
           <div
             id="calendly-embed"
             className="calendly-inline-widget"
-            data-url="https://calendly.com/aipfinance/consultation"
+            data-url="https://calendly.com/aipfinance/consultation?hide_gdpr_banner=1"
             style={{ minWidth: 320, height: 700 }}
           />
         </div>

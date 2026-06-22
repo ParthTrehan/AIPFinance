@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import Script from "next/script";
 import "../styles/globals.css";
 
@@ -20,6 +21,14 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-XXXXXXXXXX');
         `}
       </Script>
+
+      {/* Calendly CSS */}
+      <Head>
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+      </Head>
 
       {/* Calendly embed script */}
       <Script
