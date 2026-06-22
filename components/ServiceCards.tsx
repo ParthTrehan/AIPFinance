@@ -5,7 +5,7 @@ const cards = [
     Icon: IconHome,
     title: "Home Loans",
     items: [
-      "1st Home Buyers",
+      "First Home Buyers",
       "Construction Loans",
       "Bridging Loans",
       "Upgrading / Downsizing",
@@ -36,14 +36,14 @@ const cards = [
   },
   {
     Icon: IconWallet,
-    title: "Other",
+    title: "Personal & Commercial",
     items: ["Vehicle Finance", "Personal Loans", "Equipment Finance", "Commercial Property", "Business Loans"],
   },
 ];
 
 export default function ServiceCards() {
   return (
-    <section style={{ backgroundColor: "#ffffff", padding: "72px 24px 48px" }}>
+    <section id="services" style={{ backgroundColor: "#ffffff", padding: "72px 24px 48px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         <div style={{ textAlign: "center", marginBottom: 44 }}>
@@ -100,7 +100,7 @@ export default function ServiceCards() {
                 width: 46,
                 height: 46,
                 borderRadius: 12,
-                backgroundColor: "rgba(0,184,148,0.1)",
+                backgroundColor: "#EFF6FF",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

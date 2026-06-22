@@ -62,7 +62,7 @@ export default function Footer() {
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 22, marginTop: 28 }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#64748B", lineHeight: 1.8, margin: 0 }}>
-            AIP Finance Pty Ltd ABN 24 687 349 387 is a corporate credit representative (#483455) of Connective Credit Services Pty Ltd ABN 51 143 651 496 Australian Credit Licence #389328. © 2025 AIP Finance. All rights reserved.
+            AIP Finance Pty Ltd ABN 24 687 349 387 is a corporate credit representative (#483455) of Connective Credit Services Pty Ltd ABN 51 143 651 496 Australian Credit Licence #389328. © {new Date().getFullYear()} AIP Finance. All rights reserved.
           </p>
         </div>
       </div>

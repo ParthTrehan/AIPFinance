@@ -55,8 +55,6 @@ export default function Booking() {
         <div style={{ border: "1px solid #E2E8F0", borderRadius: 24, overflow: "hidden", minHeight: 600 }}>
           <div
             id="calendly-embed"
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/aipfinance/consultation?hide_gdpr_banner=1"
             style={{ minWidth: 320, minHeight: 600 }}
           />
         </div>

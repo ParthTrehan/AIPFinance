@@ -8,7 +8,7 @@ const trustPoints = [
 
 export default function About() {
   return (
-    <section style={{ backgroundColor: "#F8FAFB", padding: "96px 24px" }} className="about-section">
+    <section id="about" style={{ backgroundColor: "#F8FAFB", padding: "96px 24px" }} className="about-section">
       <div
         style={{
           maxWidth: 1100,
@@ -69,7 +69,7 @@ export default function About() {
               width: 100,
               height: 100,
               borderRadius: "50%",
-              background: "linear-gradient(135deg, #0F2B5B 0%, #00B894 100%)",
+              background: "linear-gradient(135deg, #0F2B5B 0%, #1a3a7a 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root{
   --color-primary: #0F2B5B;
-  --color-accent: #00B894;
+  --color-accent: #D4A017;
   --text: #111827;
   --muted: #64748B;
   --neutral-100: #F7FAFC;
   --neutral-200: #F3F4F6;
-  --card-border: #E6EDF9;
+  --card-border: #E2E8F0;
   --radius: 12px;
 }
 
@@ -47,9 +45,9 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .hero{padding:64px 0 40px}
   .header-inner{height:64px}
   .site-logo{font-size:18px}
-  .header nav{display:none}
-  .header nav.mobile-open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--card-border);padding:16px;gap:8px}
-  .header nav a{padding:12px;text-align:left}
+  .desktop-nav{display:none !important}
+  .phone-link{display:none !important}
+  .mobile-menu-btn{display:flex !important}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .trust-item{border-right:none;border-bottom:1px solid var(--card-border)}
   .trust-item:nth-child(odd){border-right:none}
