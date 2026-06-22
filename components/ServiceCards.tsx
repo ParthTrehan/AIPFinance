@@ -1,5 +1,6 @@
 import { useInView } from "./useInView";
 import { IconHome, IconTrendingUp, IconRefresh, IconWallet, IconCheck } from "./TablerIcons";
+import { useEnquiry } from "../context/EnquiryContext";
 
 const cards = [
   {
@@ -26,6 +27,7 @@ const cards = [
 
 export default function ServiceCards() {
   const { ref, inView } = useInView(0.1);
+  const { openModal } = useEnquiry();
 
   return (
     <section id="services" style={{ backgroundColor: "#ffffff", padding: "72px 24px 48px" }}>
@@ -119,9 +121,9 @@ export default function ServiceCards() {
               </ul>
 
               <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid #F1F5F9" }}>
-                <a href="#lead-form" className="btn btn-primary" style={{ fontSize: 13 }}>
+                <button onClick={openModal} className="btn btn-primary" style={{ fontSize: 13 }}>
                   Get a free quote
-                </a>
+                </button>
               </div>
             </div>
           ))}

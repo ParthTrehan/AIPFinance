@@ -127,6 +127,15 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
 .logo-item img{max-height:40px;object-fit:contain}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
+/* Enquiry modal: desktop shows centered card, mobile shows bottom sheet */
+.enquiry-modal-mobile{display:none}
+.enquiry-modal-desktop{display:block}
+@media(max-width:640px){
+  .enquiry-modal-mobile{display:block}
+  .enquiry-modal-desktop{display:none}
+  .enquiry-form-row{grid-template-columns:1fr !important}
+}
+
 .footer{padding:48px 0;background:#fff;border-top:1px solid var(--card-border)}
 .text-center{text-align:center}
 .mt-8{margin-top:32px}
