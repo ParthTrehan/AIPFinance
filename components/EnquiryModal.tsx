@@ -4,6 +4,8 @@ import { IconX } from "./TablerIcons";
 
 // Paste your Google Apps Script web app URL here after setup
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoIPal2n6gDDg9mTAXhfpZfVarbDK235TQYt-3RHbUlWHREmd9r2Snsoct6LDoFASadA/exec";
+
+const loanTypes = [
   "First Home Buyer",
   "Refinancing",
   "Investment Property",

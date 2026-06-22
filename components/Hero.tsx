@@ -1,7 +1,7 @@
 function HeroVisual() {
   const lenders = [
-    { name: "Commonwealth Bank", rate: "5.89%", best: true },
-    { name: "ANZ", rate: "6.04%", best: false },
+    { name: "ANZ", rate: "5.89%", best: true },
+    { name: "NAB", rate: "6.04%", best: false },
     { name: "Westpac", rate: "6.19%", best: false },
   ];
 
