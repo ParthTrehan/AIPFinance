@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import TrustBar from "../components/TrustBar";
 import LogoCarousel from "../components/LogoCarousel";
-import ServiceCards from "../components/ServiceCards";
 import IntroStory from "../components/IntroStory";
 import HowItWorks from "../components/HowItWorks";
 import Services from "../components/Services";
@@ -117,7 +116,6 @@ export default function Home() {
 
       <Header />
       <Hero />
-      <ServiceCards />
       <LogoCarousel />
       <TrustBar />
       <IntroStory />

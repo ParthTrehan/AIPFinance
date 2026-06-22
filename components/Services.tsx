@@ -183,7 +183,7 @@ export default function Services() {
 
   return (
     <section
-      id="services-detail"
+      id="services"
       style={{ backgroundColor: "#F8FAFB", padding: "88px 24px" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
