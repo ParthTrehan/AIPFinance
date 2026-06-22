@@ -182,7 +182,7 @@ function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProp
   };
 
   const text = (
-    <div style={textAnim}>
+    <div className="service-text" style={textAnim}>
       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 18 }}>
         {eyebrow}
       </p>
@@ -199,7 +199,7 @@ function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProp
   );
 
   return (
-    <section style={{ backgroundColor: bg, padding: "80px 24px" }}>
+    <section className="service-row-section" style={{ backgroundColor: bg, padding: "80px 24px" }}>
       <div
         ref={ref}
         style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}
@@ -208,11 +208,11 @@ function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProp
         {flip ? (
           <>
             {text}
-            <div style={visualAnim}>{visual}</div>
+            <div className="service-visual" style={visualAnim}>{visual}</div>
           </>
         ) : (
           <>
-            <div style={visualAnim}>{visual}</div>
+            <div className="service-visual" style={visualAnim}>{visual}</div>
             {text}
           </>
         )}

@@ -53,8 +53,15 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .trust-item:nth-child(odd){border-right:none}
   .trust-item:nth-last-child(-n+2){border-bottom:none}
   .about-grid{grid-template-columns:1fr !important}
-  .service-row-grid{grid-template-columns:1fr !important;gap:40px !important}
+  .service-row-grid{grid-template-columns:1fr !important;gap:32px !important}
+  .service-row-grid .service-text{order:1}
+  .service-row-grid .service-visual{order:2}
+  .service-row-section{padding:48px 20px !important}
+  .service-cards-grid{grid-template-columns:repeat(2,1fr) !important}
   .testimonials-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .service-cards-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:640px){
   .trust-grid{grid-template-columns:1fr}
