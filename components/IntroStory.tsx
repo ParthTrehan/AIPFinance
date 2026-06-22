@@ -8,7 +8,7 @@ const cards = [
 
 export default function IntroStory() {
   return (
-    <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
+    <section style={{ backgroundColor: "#ffffff", padding: "64px 24px" }}>
       <div
         style={{
           maxWidth: 1100,
@@ -45,29 +45,8 @@ export default function IntroStory() {
               Let AIP Finance make it simple. With access to 40+ lenders and years of experience helping Melbourne families and investors, Anita handles everything — so you just focus on moving forward.
             </p>
           </div>
-          <a
-            href="#booking"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 14,
-              fontWeight: 600,
-              color: "#0F2B5B",
-              textDecoration: "none",
-              borderBottom: "1px solid transparent",
-              transition: "color 0.15s ease, border-color 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget;
-              el.style.color = "var(--color-accent)";
-              el.style.borderColor = "var(--color-accent)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget;
-              el.style.color = "var(--color-primary)";
-              el.style.borderColor = "transparent";
-            }}
-          >
-            Learn how we work →
+          <a href="#booking" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
+            Book a free consultation
           </a>
         </div>
 

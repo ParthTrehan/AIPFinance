@@ -81,7 +81,6 @@ export default function ServiceCards() {
                 padding: "28px 24px 24px",
                 display: "flex",
                 flexDirection: "column",
-                minHeight: 520,
                 boxShadow: "0 1px 8px rgba(15,43,91,0.07)",
                 transition: "box-shadow 0.2s ease, transform 0.2s ease",
               }}
