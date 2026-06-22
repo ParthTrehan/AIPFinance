@@ -1,3 +1,5 @@
+import { useEnquiry } from "../context/EnquiryContext";
+
 function HeroVisual() {
   const lenders = [
     { name: "ANZ", rate: "5.89%", best: true },
@@ -67,6 +69,8 @@ function HeroVisual() {
 }
 
 export default function Hero() {
+  const { openModal } = useEnquiry();
+
   return (
     <section className="hero">
       <div className="container hero-inner">
@@ -79,8 +83,9 @@ export default function Hero() {
             AIP Finance compares 40+ lenders to find a lower rate for your home loan, refinance or investment — with no broker fee.
           </p>
 
-          <div style={{marginTop:24}}>
-            <a className="btn btn-primary" href="tel:+61498241696">Call now — 0498 241 696</a>
+          <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+            <button className="btn btn-primary" onClick={openModal}>Get a free quote</button>
+            <a className="btn btn-ghost" href="tel:+61498241696" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.35)" }}>Call now — 0498 241 696</a>
           </div>
         </div>
 
