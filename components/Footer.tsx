@@ -33,13 +33,8 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Facebook"
-              style={{ color: "#D4A017", transition: "opacity 0.15s ease" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = "0.75";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = "1";
-              }}
+              className="social-icon"
+              style={{ color: "var(--color-accent)" }}
             >
               <IconBrandFacebook size={24} />
             </a>
@@ -48,13 +43,8 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn"
-              style={{ color: "#D4A017", transition: "opacity 0.15s ease" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = "0.75";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = "1";
-              }}
+              className="social-icon"
+              style={{ color: "var(--color-accent)" }}
             >
               <IconBrandLinkedin size={24} />
             </a>

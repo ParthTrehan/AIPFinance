@@ -16,8 +16,11 @@ const cards = [
     Icon: IconTrendingUp,
     title: "Investments",
     items: [
-      "Tax Effective Loan Structure for Investment Property Loans",
-      "SMSF",
+      "Investment Property Loans",
+      "Tax Effective Loan Structure",
+      "SMSF Property Finance",
+      "Portfolio Diversification",
+      "Equity Release",
     ],
   },
   {
@@ -28,12 +31,13 @@ const cards = [
       "Comparison of other possible options",
       "Consideration of desired goals and outcomes",
       "Debt Consolidation",
+      "Home Equity Access",
     ],
   },
   {
     Icon: IconWallet,
     title: "Other",
-    items: ["Vehicle Finance", "Personal Loans", "Debt Consolidation"],
+    items: ["Vehicle Finance", "Personal Loans", "Equipment Finance", "Commercial Property", "Business Loans"],
   },
 ];
 
@@ -49,7 +53,7 @@ export default function ServiceCards() {
             fontWeight: 500,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#D4A017",
+            color: "var(--color-accent)",
             marginBottom: 12,
           }}>
             WHAT WE OFFER
@@ -77,6 +81,7 @@ export default function ServiceCards() {
                 padding: "28px 24px 24px",
                 display: "flex",
                 flexDirection: "column",
+                minHeight: 520,
                 boxShadow: "0 1px 8px rgba(15,43,91,0.07)",
                 transition: "box-shadow 0.2s ease, transform 0.2s ease",
               }}
@@ -95,11 +100,11 @@ export default function ServiceCards() {
                 width: 46,
                 height: 46,
                 borderRadius: 12,
-                backgroundColor: "#EFF6FF",
+                backgroundColor: "rgba(0,184,148,0.1)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#0F2B5B",
+                color: "var(--color-primary)",
                 marginBottom: 16,
                 flexShrink: 0,
               }}>
@@ -110,7 +115,7 @@ export default function ServiceCards() {
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 16,
                 fontWeight: 700,
-                color: "#0F2B5B",
+                color: "var(--color-primary)",
                 marginBottom: 4,
               }}>
                 {title}
@@ -149,7 +154,7 @@ export default function ServiceCards() {
                     <span style={{
                       position: "absolute",
                       left: 0,
-                      color: "#D4A017",
+                      color: "var(--color-accent)",
                       fontWeight: 700,
                     }}>–</span>
                     {item}
@@ -164,25 +169,12 @@ export default function ServiceCards() {
               }}>
                 <a
                   href="#booking"
+                  className="btn btn-primary"
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 5,
-                    fontFamily: "'Inter', sans-serif",
                     fontSize: 13,
-                    fontWeight: 600,
-                    color: "#0F2B5B",
-                    textDecoration: "none",
-                    transition: "color 0.15s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#D4A017";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#0F2B5B";
                   }}
                 >
-                  Book Now <IconArrowRight size={13} />
+                  Book Now
                 </a>
               </div>
             </div>

@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { IconPhone } from "./TablerIcons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

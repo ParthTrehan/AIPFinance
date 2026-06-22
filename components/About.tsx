@@ -8,7 +8,7 @@ const trustPoints = [
 
 export default function About() {
   return (
-    <section style={{ backgroundColor: "#F8FAFB", padding: "96px 24px" }}>
+    <section style={{ backgroundColor: "#F8FAFB", padding: "96px 24px" }} className="about-section">
       <div
         style={{
           maxWidth: 1100,
@@ -28,7 +28,7 @@ export default function About() {
               fontWeight: 500,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#D4A017",
+              color: "var(--color-accent)",
               marginBottom: 20,
             }}
           >
@@ -48,24 +48,8 @@ export default function About() {
           </p>
           <a
             href="#booking"
-            style={{
-              display: "inline-block",
-              backgroundColor: "#0F2B5B",
-              color: "#ffffff",
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 15,
-              padding: "14px 30px",
-              borderRadius: 10,
-              textDecoration: "none",
-              transition: "background-color 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#0a1f44";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#0F2B5B";
-            }}
+            className="btn btn-primary"
+            style={{marginTop:8}}
           >
             Book a free call with Anita
           </a>
@@ -82,18 +66,18 @@ export default function About() {
         >
           <div
             style={{
-              width: 80,
-              height: 80,
+              width: 100,
+              height: 100,
               borderRadius: "50%",
-              backgroundColor: "#0F2B5B",
+              background: "linear-gradient(135deg, #0F2B5B 0%, #00B894 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               margin: "0 auto",
             }}
           >
-            <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 20, color: "#ffffff" }}>
-              APS
+            <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 28, color: "#ffffff" }}>
+              AP
             </span>
           </div>
           <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#0F2B5B", marginTop: 18, marginBottom: 4 }}>
@@ -102,11 +86,11 @@ export default function About() {
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#64748B", marginBottom: 20 }}>
             Accredited Mortgage Broker
           </p>
-          <div style={{ width: 48, height: 1, backgroundColor: "#D4A017", margin: "0 auto 26px" }} />
+          <div style={{ width: 48, height: 1, backgroundColor: "var(--color-accent)", margin: "0 auto 26px" }} />
           <div style={{ display: "flex", flexDirection: "column", gap: 14, alignItems: "flex-start" }}>
             {trustPoints.map((point) => (
               <div key={point} style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                <IconCheck size={16} style={{ color: "#D4A017" }} />
+                <IconCheck size={16} style={{ color: "var(--color-accent)" }} />
                 <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#1E293B", margin: 0 }}>
                   {point}
                 </p>
@@ -119,13 +103,8 @@ export default function About() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Facebook"
-              style={{ color: "#0F2B5B", transition: "color 0.15s ease" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#D4A017";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#0F2B5B";
-              }}
+              className="social-icon"
+              style={{ color: "var(--color-primary)" }}
             >
               <IconBrandFacebook size={24} />
             </a>
@@ -134,13 +113,8 @@ export default function About() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn"
-              style={{ color: "#0F2B5B", transition: "color 0.15s ease" }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#D4A017";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#0F2B5B";
-              }}
+              className="social-icon"
+              style={{ color: "var(--color-primary)" }}
             >
               <IconBrandLinkedin size={24} />
             </a>

@@ -28,7 +28,7 @@ export default function IntroStory() {
               fontWeight: 500,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#D4A017",
+              color: "var(--color-accent)",
               marginBottom: 20,
             }}
           >
@@ -58,12 +58,12 @@ export default function IntroStory() {
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget;
-              el.style.color = "#D4A017";
-              el.style.borderColor = "#D4A017";
+              el.style.color = "var(--color-accent)";
+              el.style.borderColor = "var(--color-accent)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget;
-              el.style.color = "#0F2B5B";
+              el.style.color = "var(--color-primary)";
               el.style.borderColor = "transparent";
             }}
           >

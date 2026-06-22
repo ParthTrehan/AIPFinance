@@ -58,11 +58,11 @@ export default function TrustBar() {
                   width: 44,
                   height: 44,
                   borderRadius: 10,
-                  backgroundColor: "#EFF6FF",
+                  backgroundColor: "rgba(0,184,148,0.1)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#0F2B5B",
+                  color: "var(--color-primary)",
                   marginBottom: 14,
                 }}
               >
@@ -73,7 +73,7 @@ export default function TrustBar() {
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 14,
                   fontWeight: 600,
-                  color: "#0F2B5B",
+                  color: "var(--color-primary)",
                   marginBottom: 6,
                 }}
               >

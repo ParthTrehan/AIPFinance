@@ -93,7 +93,7 @@ function ServiceRow({ eyebrow, heading, body, Icon, flip, bg }: ServiceRowProps)
           fontWeight: 500,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#D4A017",
+          color: "var(--color-accent)",
           marginBottom: 18,
         }}
       >
@@ -115,31 +115,12 @@ function ServiceRow({ eyebrow, heading, body, Icon, flip, bg }: ServiceRowProps)
       </p>
       <a
         href="#booking"
+        className="btn btn-primary"
         style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 8,
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 14,
-          fontWeight: 600,
-          color: "#0F2B5B",
-          textDecoration: "none",
-          borderBottom: "1px solid transparent",
-          paddingBottom: 2,
-          transition: "color 0.15s ease, border-color 0.15s ease",
-        }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget;
-          el.style.color = "#D4A017";
-          el.style.borderColor = "#D4A017";
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget;
-          el.style.color = "#0F2B5B";
-          el.style.borderColor = "transparent";
+          marginTop: "auto",
         }}
       >
-        Learn more <IconArrowRight size={14} />
+        Learn More
       </a>
     </div>
   );

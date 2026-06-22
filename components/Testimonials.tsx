@@ -2,14 +2,17 @@ const testimonials = [
   {
     quote: "Anita is a thorough professional and she really listens to and understands your financial needs.",
     author: "Saad Sami",
+    initials: "SS",
   },
   {
     quote: "Great reliable service, quick and efficient, highly recommend it!!!",
     author: "Olesea Spicer",
+    initials: "OS",
   },
   {
     quote: "Most reliable and quick service for home loan assistance. Always ready to answer any questions any time. Highly recommended.",
     author: "Paresh Vekariya",
+    initials: "PV",
   },
 ];
 
@@ -23,13 +26,28 @@ export default function Testimonials(){
         </div>
 
         <div className="testimonials-grid">
-          {testimonials.map(({quote,author})=> (
+          {testimonials.map(({quote,author,initials},i)=> (
             <article className="testimonial" key={author}>
-              <div style={{color:'var(--color-accent)',fontWeight:700,letterSpacing:'.04em',fontSize:14}}>★★★★★</div>
-              <blockquote style={{marginTop:12,flex:1,fontStyle:'italic'}}>{quote}</blockquote>
-              <footer>
-                <div style={{width:40,height:4,background:'var(--color-accent)',marginBottom:10}} />
-                <div style={{fontWeight:600}}>{author}</div>
+              <div style={{color:'var(--color-accent)',fontWeight:700,letterSpacing:'.04em',fontSize:14,marginBottom:12}}>★★★★★</div>
+              <blockquote style={{marginTop:0,flex:1,fontStyle:'italic',color:'#475569'}}>{quote}</blockquote>
+              <footer style={{display:'flex',gap:12,alignItems:'center',marginTop:16,paddingTop:16,borderTop:'1px solid var(--card-border)'}}>
+                <div style={{
+                  width:40,
+                  height:40,
+                  borderRadius:'50%',
+                  backgroundImage:`linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)`,
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  color:'#fff',
+                  fontWeight:700,
+                  fontSize:14,
+                  flexShrink:0
+                }}>{initials}</div>
+                <div>
+                  <div style={{fontWeight:600,fontSize:14,color:'var(--text)'}}>{author}</div>
+                  <div style={{fontSize:12,color:'var(--muted)',marginTop:2}}>Verified client</div>
+                </div>
               </footer>
             </article>
           ))}

@@ -48,7 +48,7 @@ export default function StatsRow() {
                 fontFamily: "'Playfair Display', serif",
                 fontSize: 52,
                 fontWeight: 600,
-                color: "#D4A017",
+                color: "var(--color-accent)",
                 margin: 0,
                 lineHeight: 1,
               }}
