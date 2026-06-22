@@ -1,8 +1,8 @@
 function HeroVisual() {
   const lenders = [
-    { name: "Commonwealth Bank", rate: "5.89%", best: true },
-    { name: "ANZ", rate: "6.04%", best: false },
-    { name: "Westpac", rate: "6.19%", best: false },
+    { name: "Commonwealth Bank", rate: "5.89%", best: true, logo: "/AIPFinance/logos/commbank-logo.svg" },
+    { name: "ANZ", rate: "6.04%", best: false, logo: "/AIPFinance/logos/anz-logo.png" },
+    { name: "Westpac", rate: "6.19%", best: false, logo: "/AIPFinance/logos/westpac-logo.jpg" },
   ];
 
   return (
@@ -23,17 +23,22 @@ function HeroVisual() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {lenders.map(({ name, rate, best }) => (
+        {lenders.map(({ name, rate, best, logo }) => (
           <div key={name} style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "12px 14px",
+            padding: "10px 14px",
             background: best ? "#EFF6FF" : "#F8FAFB",
             borderRadius: 10,
             border: best ? "1px solid rgba(15,43,91,0.12)" : "1px solid transparent",
           }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <img
+                src={logo}
+                alt={name}
+                style={{ height: 22, width: 60, objectFit: "contain", objectPosition: "left", flexShrink: 0 }}
+              />
               {best && (
                 <span style={{
                   fontSize: 9,
@@ -45,7 +50,6 @@ function HeroVisual() {
                   letterSpacing: "0.06em",
                 }}>BEST</span>
               )}
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#1E293B" }}>{name}</span>
             </div>
             <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
           </div>
