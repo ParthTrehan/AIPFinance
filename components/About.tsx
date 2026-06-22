@@ -34,8 +34,8 @@ export default function About() {
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 32 }}>
             Whether you're a first home buyer, a seasoned investor, or self-employed, Anita will find the right loan structure for your needs — and be with you every step of the way from application to settlement.
           </p>
-          <a href="#booking" className="btn btn-primary" style={{ marginTop: 8 }}>
-            Book a free call with Anita
+          <a href="tel:+61498241696" className="btn btn-primary" style={{ marginTop: 8 }}>
+            Call Anita — 0498 241 696
           </a>
         </div>
 

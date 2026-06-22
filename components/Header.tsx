@@ -84,8 +84,8 @@ export default function Header() {
             +61 498 241 696
           </a>
 
-          <a className="btn btn-primary" href="#booking" style={{ whiteSpace: "nowrap" }}>
-            Book a Free Call
+          <a className="btn btn-primary" href="tel:+61498241696" style={{ whiteSpace: "nowrap" }}>
+            Call now
           </a>
 
           {/* Hamburger — only visible on mobile via CSS */}

@@ -36,8 +36,8 @@ export default function IntroStory() {
               Let AIP Finance make it simple. With access to 40+ lenders and years of experience helping Melbourne families and investors, Anita handles everything — so you just focus on moving forward.
             </p>
           </div>
-          <a href="#booking" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
-            Book a free consultation
+          <a href="tel:+61498241696" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
+            Call now — 0498 241 696
           </a>
         </div>
 

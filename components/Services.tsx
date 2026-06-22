@@ -192,8 +192,8 @@ function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProp
       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 28 }}>
         {body}
       </p>
-      <a href="#booking" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
-        Book a Free Consultation
+      <a href="tel:+61498241696" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
+        Call now — 0498 241 696
       </a>
     </div>
   );

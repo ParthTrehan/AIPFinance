@@ -80,7 +80,7 @@ export default function Hero() {
           </p>
 
           <div style={{marginTop:24}}>
-            <a className="btn btn-primary" href="#booking">Book a free consultation</a>
+            <a className="btn btn-primary" href="tel:+61498241696">Call now — 0498 241 696</a>
           </div>
         </div>
 

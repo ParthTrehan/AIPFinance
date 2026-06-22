@@ -21,7 +21,7 @@ export default function CTABanner() {
         <p className="p-muted" style={{ maxWidth: 720, margin: "8px auto 18px" }}>Whether you're buying, refinancing, or investing — get a free, no-obligation consultation and tailored loan comparison from our Melbourne broker.</p>
         <div className="cta-buttons" style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 12 }}>
           <button onClick={openModal} className="btn btn-primary">Get a free quote</button>
-          <a className="btn btn-ghost" href="#booking">Book a call</a>
+          <a className="btn btn-ghost" href="tel:+61498241696">Call now</a>
         </div>
       </div>
     </section>
