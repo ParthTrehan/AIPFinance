@@ -83,9 +83,9 @@ export default function Hero() {
             AIP Finance compares 40+ lenders to find a lower rate for your home loan, refinance or investment — with no broker fee.
           </p>
 
-          <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+          <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
             <button className="btn btn-primary" onClick={openModal}>Get a free quote</button>
-            <a className="btn btn-ghost" href="tel:+61498241696" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.35)" }}>Call now — 0498 241 696</a>
+            <a className="btn" href="tel:+61498241696" style={{ backgroundColor: "var(--color-accent)", color: "#0F2B5B", fontWeight: 700, boxShadow: "0 2px 8px rgba(212,160,23,0.25)" }}>Call now — 0498 241 696</a>
           </div>
         </div>
 
