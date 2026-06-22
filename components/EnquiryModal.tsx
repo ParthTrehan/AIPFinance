@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useEnquiry } from "../context/EnquiryContext";
 import { IconX } from "./TablerIcons";
 
-const loanTypes = [
+// Paste your Google Apps Script web app URL here after setup
+const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL";
   "First Home Buyer",
   "Refinancing",
   "Investment Property",
@@ -39,16 +40,22 @@ export default function EnquiryModal() {
     e.preventDefault();
     setLoading(true);
     setError(false);
-    const data = new FormData(e.currentTarget);
+
+    const raw = new FormData(e.currentTarget);
+    const params = new URLSearchParams();
+    raw.forEach((val, key) => params.append(key, val.toString()));
+
     try {
-      // Sign up free at formspree.io and replace YOUR_FORM_ID
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      // Google Apps Script doesn't support CORS so we use no-cors.
+      // The request still goes through — we just can't read the response,
+      // so we optimistically show success.
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString(),
       });
-      if (res.ok) setSubmitted(true);
-      else setError(true);
+      setSubmitted(true);
     } catch {
       setError(true);
     } finally {
