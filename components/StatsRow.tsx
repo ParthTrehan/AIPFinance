@@ -1,37 +1,20 @@
+import { useInView } from "./useInView";
+
 const stats = [
-  {
-    value: "40+",
-    label: "Lenders compared",
-    sub: "Every major Australian lender",
-  },
-  {
-    value: "$0",
-    label: "Cost to you",
-    sub: "Broker fees paid by lenders",
-  },
-  {
-    value: "5★",
-    label: "Client rating",
-    sub: "Across all reviews",
-  },
-  {
-    value: "48hrs",
-    label: "Pre-approval",
-    sub: "Average turnaround time",
-  },
+  { value: "40+", label: "Lenders compared", sub: "Every major Australian lender" },
+  { value: "$0", label: "Cost to you", sub: "Broker fees paid by lenders" },
+  { value: "5★", label: "Client rating", sub: "Across all reviews" },
+  { value: "48hrs", label: "Pre-approval", sub: "Average turnaround time" },
 ];
 
 export default function StatsRow() {
+  const { ref, inView } = useInView(0.2);
+
   return (
     <section style={{ backgroundColor: "#0F2B5B", padding: "72px 24px" }}>
       <div
-        style={{
-          maxWidth: 1100,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-          gap: 0,
-        }}
+        ref={ref}
+        style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 0 }}
         className="stats-counter-grid"
       >
         {stats.map(({ value, label, sub }, index) => (
@@ -41,47 +24,22 @@ export default function StatsRow() {
               textAlign: "center",
               padding: "24px 16px",
               borderRight: index < stats.length - 1 ? "1px solid rgba(255,255,255,0.1)" : "none",
+              opacity: inView ? undefined : 0,
+              animation: inView ? `fadeUp 0.5s cubic-bezier(0.4,0,0.2,1) ${index * 80}ms both` : undefined,
             }}
           >
-            <p
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: 52,
-                fontWeight: 600,
-                color: "var(--color-accent)",
-                margin: 0,
-                lineHeight: 1,
-              }}
-            >
+            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 52, fontWeight: 600, color: "var(--color-accent)", margin: 0, lineHeight: 1 }}>
               {value}
             </p>
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 14,
-                color: "#ffffff",
-                fontWeight: 600,
-                margin: "14px 0 8px",
-              }}
-            >
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#ffffff", fontWeight: 600, margin: "14px 0 8px" }}>
               {label}
             </p>
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 12,
-                color: "#94A3B8",
-                margin: 0,
-                lineHeight: 1.6,
-              }}
-            >
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#94A3B8", margin: 0, lineHeight: 1.6 }}>
               {sub}
             </p>
           </div>
         ))}
       </div>
-
-      {/* Responsive rules moved to globals.css to avoid hydration mismatches */}
     </section>
   );
 }

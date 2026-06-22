@@ -106,3 +106,16 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
 .mt-8{margin-top:32px}
 :focus{outline:3px solid rgba(10,108,255,0.12);outline-offset:3px}
 .small{font-size:13px;color:var(--muted)}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

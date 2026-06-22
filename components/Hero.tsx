@@ -70,7 +70,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="container hero-inner">
-        <div className="hero-copy">
+        <div className="hero-copy" style={{ animation: "slideInLeft 0.7s cubic-bezier(0.4,0,0.2,1) both" }}>
           <p className="lead" style={{color:'var(--color-accent)'}}>Melbourne mortgage broker</p>
           <h1 style={{color:'#fff'}}>
             Simple home loans that save you money
@@ -84,7 +84,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual">
+        <div className="hero-visual" style={{ animation: "slideInRight 0.7s 0.15s cubic-bezier(0.4,0,0.2,1) both" }}>
           <HeroVisual />
         </div>
       </div>

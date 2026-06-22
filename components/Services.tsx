@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  IconHome,
-  IconRefresh,
-  IconFileDescription,
-  IconBriefcase,
-  IconCheck,
-  IconArrowRight,
-} from "./TablerIcons";
+import { useInView } from "./useInView";
+import { IconHome, IconRefresh, IconFileDescription, IconBriefcase, IconCheck, IconArrowRight } from "./TablerIcons";
 
 interface ServiceRowProps {
   eyebrow: string;
@@ -20,13 +14,7 @@ interface ServiceRowProps {
 function HomeLoansVisual() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{
-        backgroundColor: "#fff",
-        border: "1px solid #E2E8F0",
-        borderRadius: 20,
-        padding: "24px 28px",
-        boxShadow: "0 4px 20px rgba(15,43,91,0.08)",
-      }}>
+      <div style={{ backgroundColor: "#fff", border: "1px solid #E2E8F0", borderRadius: 20, padding: "24px 28px", boxShadow: "0 4px 20px rgba(15,43,91,0.08)" }}>
         <p style={{ fontSize: 12, fontWeight: 600, color: "#94A3B8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 6px" }}>
           Estimated Borrowing Power
         </p>
@@ -60,13 +48,7 @@ function HomeLoansVisual() {
 function RefinanceVisual() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      <div style={{
-        backgroundColor: "#fff",
-        border: "1px solid #E2E8F0",
-        borderRadius: 20,
-        padding: "24px 28px",
-        boxShadow: "0 4px 20px rgba(15,43,91,0.08)",
-      }}>
+      <div style={{ backgroundColor: "#fff", border: "1px solid #E2E8F0", borderRadius: 20, padding: "24px 28px", boxShadow: "0 4px 20px rgba(15,43,91,0.08)" }}>
         <p style={{ fontSize: 12, fontWeight: 600, color: "#94A3B8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 18px" }}>
           Rate Comparison
         </p>
@@ -98,13 +80,7 @@ function LowDocVisual() {
     { label: "Bank statements (3 months)", done: true },
   ];
   return (
-    <div style={{
-      backgroundColor: "#fff",
-      border: "1px solid #E2E8F0",
-      borderRadius: 20,
-      padding: "28px",
-      boxShadow: "0 4px 20px rgba(15,43,91,0.08)",
-    }}>
+    <div style={{ backgroundColor: "#fff", border: "1px solid #E2E8F0", borderRadius: 20, padding: "28px", boxShadow: "0 4px 20px rgba(15,43,91,0.08)" }}>
       <p style={{ fontSize: 12, fontWeight: 600, color: "#94A3B8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 20px" }}>
         Low Doc Eligibility Checklist
       </p>
@@ -132,13 +108,7 @@ function BusinessVisual() {
     { label: "Working Capital", amount: "$45K" },
   ];
   return (
-    <div style={{
-      backgroundColor: "#fff",
-      border: "1px solid #E2E8F0",
-      borderRadius: 20,
-      padding: "28px",
-      boxShadow: "0 4px 20px rgba(15,43,91,0.08)",
-    }}>
+    <div style={{ backgroundColor: "#fff", border: "1px solid #E2E8F0", borderRadius: 20, padding: "28px", boxShadow: "0 4px 20px rgba(15,43,91,0.08)" }}>
       <p style={{ fontSize: 12, fontWeight: 600, color: "#94A3B8", textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 0 20px" }}>
         Business Loan Facility
       </p>
@@ -161,11 +131,7 @@ function BusinessVisual() {
 const rows: ServiceRowProps[] = [
   {
     eyebrow: "HOME LOANS",
-    heading: (
-      <>
-        Buying your <em>first home?</em> We'll guide you through it.
-      </>
-    ),
+    heading: <>Buying your <em>first home?</em> We'll guide you through it.</>,
     body: "Buying your first home is one of the biggest decisions you'll ever make. AIP Finance walks you through every step — from understanding your borrowing power to settlement day. We handle the lender comparisons, the paperwork, and the negotiations so you don't have to.",
     visual: <HomeLoansVisual />,
     flip: false,
@@ -173,11 +139,7 @@ const rows: ServiceRowProps[] = [
   },
   {
     eyebrow: "REFINANCING",
-    heading: (
-      <>
-        Still on your old rate? You could be <em>saving thousands.</em>
-      </>
-    ),
+    heading: <>Still on your old rate? You could be <em>saving thousands.</em></>,
     body: "Interest rates change constantly — and your loyalty to your current lender isn't rewarded. AIP Finance reviews your existing loan and compares it against 40+ lenders to find you a better deal. Most clients are surprised by how much they save.",
     visual: <RefinanceVisual />,
     flip: true,
@@ -185,11 +147,7 @@ const rows: ServiceRowProps[] = [
   },
   {
     eyebrow: "LOW DOC LOANS",
-    heading: (
-      <>
-        Self-employed? <em>Home ownership</em> is still within reach.
-      </>
-    ),
+    heading: <>Self-employed? <em>Home ownership</em> is still within reach.</>,
     body: "If you don't have traditional payslips or tax returns, standard loan applications can feel impossible. AIP Finance specialises in low doc loans designed specifically for self-employed Australians — making home ownership a reality regardless of how you work.",
     visual: <LowDocVisual />,
     flip: false,
@@ -197,11 +155,7 @@ const rows: ServiceRowProps[] = [
   },
   {
     eyebrow: "BUSINESS & COMMERCIAL",
-    heading: (
-      <>
-        Growing your <em>property portfolio</em> or business?
-      </>
-    ),
+    heading: <>Growing your <em>property portfolio</em> or business?</>,
     body: "Whether you're investing in commercial property or need equipment finance to grow your business, AIP Finance understands how commercial lending works. We review your cash flow, navigate the options, and find the most competitive rates for your situation.",
     visual: <BusinessVisual />,
     flip: true,
@@ -210,33 +164,32 @@ const rows: ServiceRowProps[] = [
 ];
 
 function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProps) {
+  const { ref, inView } = useInView(0.1);
+
+  const textAnim: React.CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateX(0)" : `translateX(${flip ? "-24px" : "24px"})`,
+    transition: "opacity 0.6s ease, transform 0.6s ease",
+  };
+
+  const visualAnim: React.CSSProperties = {
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateX(0)" : `translateX(${flip ? "24px" : "-24px"})`,
+    transition: "opacity 0.6s 0.1s ease, transform 0.6s 0.1s ease",
+  };
+
   const text = (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-      <p
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 11,
-          fontWeight: 500,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--color-accent)",
-          marginBottom: 18,
-        }}
-      >
+    <div style={textAnim}>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 18 }}>
         {eyebrow}
       </p>
       <h2 style={{ fontSize: "clamp(28px, 3.2vw, 38px)", marginBottom: 20, lineHeight: 1.2 }}>
         {heading}
       </h2>
-      <p
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: 16,
-          color: "#64748B",
-          lineHeight: 1.8,
-          marginBottom: 28,
-        }}
-      >
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 28 }}>
         {body}
       </p>
       <a href="#booking" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
@@ -248,24 +201,18 @@ function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProp
   return (
     <section style={{ backgroundColor: bg, padding: "80px 24px" }}>
       <div
-        style={{
-          maxWidth: 1100,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 64,
-          alignItems: "center",
-        }}
+        ref={ref}
+        style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}
         className="service-row-grid"
       >
         {flip ? (
           <>
             {text}
-            {visual}
+            <div style={visualAnim}>{visual}</div>
           </>
         ) : (
           <>
-            {visual}
+            <div style={visualAnim}>{visual}</div>
             {text}
           </>
         )}
