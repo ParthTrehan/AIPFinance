@@ -31,11 +31,8 @@ export default function About() {
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 20 }}>
             Anita Parker Sareen founded AIP Finance with one goal — to make the home loan process simple, transparent, and stress-free for every Australian. With access to 40+ lenders and years of hands-on experience, Anita takes the time to understand your situation before recommending anything.
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 26 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 32 }}>
             Whether you're a first home buyer, a seasoned investor, or self-employed, Anita will find the right loan structure for your needs — and be with you every step of the way from application to settlement.
-          </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#94A3B8", lineHeight: 1.8, marginBottom: 32 }}>
-            AIP Finance Pty Ltd ABN 24 687 349 387 is a corporate credit representative (#483455) of Connective Credit Services Pty Ltd ABN 51 143 651 496 Australian Credit Licence #389328.
           </p>
           <a href="#booking" className="btn btn-primary" style={{ marginTop: 8 }}>
             Book a free call with Anita

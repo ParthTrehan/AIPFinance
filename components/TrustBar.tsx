@@ -5,7 +5,7 @@ const items = [
   { Icon: IconBuildingBank, label: "40+ lenders", desc: "We search them all" },
   { Icon: IconCurrencyDollar, label: "No cost to you", desc: "Broker fee free" },
   { Icon: IconMapPin, label: "Melbourne based", desc: "Local expertise" },
-  { Icon: IconBolt, label: "Fast approval", desc: "Pre-approval in days" },
+  { Icon: IconBolt, label: "48hr pre-approval", desc: "Average turnaround time" },
 ];
 
 export default function TrustBar() {

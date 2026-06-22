@@ -74,6 +74,8 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
 }
 @media(max-width:480px){
   .service-cards-grid{grid-template-columns:1fr !important}
+  .lead-form-row{grid-template-columns:1fr !important}
+  #lead-form form{padding:28px 20px !important}
   .service-cards-grid > div{padding:20px 16px !important}
   .stats-counter-grid{grid-template-columns:1fr !important}
   .stats-counter-grid > div{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.1)}

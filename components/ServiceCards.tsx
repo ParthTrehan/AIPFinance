@@ -119,8 +119,8 @@ export default function ServiceCards() {
               </ul>
 
               <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid #F1F5F9" }}>
-                <a href="#booking" className="btn btn-primary" style={{ fontSize: 13 }}>
-                  Book Now
+                <a href="#lead-form" className="btn btn-primary" style={{ fontSize: 13 }}>
+                  Get a free quote
                 </a>
               </div>
             </div>

@@ -10,6 +10,7 @@ import StatsRow from "../components/StatsRow";
 import Testimonials from "../components/Testimonials";
 import About from "../components/About";
 import CTABanner from "../components/CTABanner";
+import LeadForm from "../components/LeadForm";
 import Booking from "../components/Booking";
 import Footer from "../components/Footer";
 
@@ -33,6 +34,7 @@ export default function Home() {
       <Testimonials />
       <About />
       <CTABanner />
+      <LeadForm />
       <Booking />
       <Footer />
     </>
