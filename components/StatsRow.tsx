@@ -3,7 +3,7 @@ import { useInView } from "./useInView";
 const stats = [
   { value: "40+", label: "Lenders compared", sub: "Every major Australian lender" },
   { value: "$0", label: "Cost to you", sub: "Broker fees paid by lenders" },
-  { value: "5★", label: "Client rating", sub: "Across all reviews" },
+  { value: "5.0★", label: "Google rating", sub: "Across all verified reviews" },
   { value: "48hrs", label: "Pre-approval", sub: "Average turnaround time" },
 ];
 

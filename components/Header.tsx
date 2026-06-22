@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { IconPhone, IconMenu2, IconX } from "./TablerIcons";
+import { useEnquiry } from "../context/EnquiryContext";
 
 const navLinks = [
   { label: "Services", href: "#services" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "Reviews", href: "#testimonials" },
   { label: "About", href: "#about" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openModal } = useEnquiry();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -146,10 +150,28 @@ export default function Header() {
               color: "#111827",
               textDecoration: "none",
               padding: "12px 0",
+              borderBottom: "1px solid var(--card-border)",
             }}
           >
             +61 498 241 696
           </a>
+          <div style={{ display: "flex", gap: 10, paddingTop: 16 }}>
+            <button
+              onClick={() => { openModal(); setMenuOpen(false); }}
+              className="btn btn-primary"
+              style={{ flex: 1, justifyContent: "center", fontSize: 14 }}
+            >
+              Get a free quote
+            </button>
+            <a
+              href="tel:+61498241696"
+              onClick={() => setMenuOpen(false)}
+              className="btn btn-ghost"
+              style={{ flex: 1, justifyContent: "center", fontSize: 14 }}
+            >
+              Call now
+            </a>
+          </div>
         </div>
       )}
     </header>

@@ -5,6 +5,8 @@ const trustPoints = [
   "Access to 40+ lenders",
   "No cost to you",
   "Melbourne based",
+  "Cert IV Finance & Mortgage Broking",
+  "Connective Network member",
 ];
 
 export default function About() {
@@ -49,29 +51,32 @@ export default function About() {
           transform: inView ? "translateX(0)" : "translateX(24px)",
           transition: "opacity 0.6s 0.15s ease, transform 0.6s 0.15s ease",
         }}>
-          <div style={{ width: 110, height: 110, borderRadius: "50%", overflow: "hidden", margin: "0 auto", border: "3px solid #E2E8F0" }}>
-            <img src="/AIPFinance/anita.jpg" alt="Anita Parker Sareen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+          <div style={{ width: 160, height: 160, borderRadius: "50%", overflow: "hidden", margin: "0 auto", border: "4px solid #E2E8F0", boxShadow: "0 4px 20px rgba(15,43,91,0.12)" }}>
+            <img src="/AIPFinance/anita.jpg" alt="Anita Parker Sareen, Accredited Mortgage Broker Melbourne" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
           </div>
-          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#0F2B5B", marginTop: 18, marginBottom: 4 }}>
+          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#0F2B5B", marginTop: 20, marginBottom: 4 }}>
             Anita Parker Sareen
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#64748B", marginBottom: 20 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#64748B", marginBottom: 4 }}>
             Accredited Mortgage Broker
           </p>
-          <div style={{ width: 48, height: 1, backgroundColor: "var(--color-accent)", margin: "0 auto 26px" }} />
-          <div style={{ display: "flex", flexDirection: "column", gap: 14, alignItems: "flex-start" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "var(--color-accent)", fontWeight: 600, marginBottom: 20 }}>
+            Cert IV Finance & Mortgage Broking
+          </p>
+          <div style={{ width: 48, height: 1, backgroundColor: "var(--color-accent)", margin: "0 auto 24px" }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
             {trustPoints.map((point) => (
               <div key={point} style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                <IconCheck size={16} style={{ color: "var(--color-accent)" }} />
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#1E293B", margin: 0 }}>{point}</p>
+                <IconCheck size={15} style={{ color: "var(--color-accent)", flexShrink: 0 }} />
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#1E293B", margin: 0 }}>{point}</p>
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", justifyContent: "center", gap: 18, marginTop: 30, paddingTop: 22, borderTop: "1px solid #E2E8F0" }}>
-            <a href="https://www.facebook.com/pg/aipfinance/" target="_blank" rel="noreferrer noopener" aria-label="Facebook" className="social-icon" style={{ color: "var(--color-primary)" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: 18, marginTop: 28, paddingTop: 22, borderTop: "1px solid #E2E8F0" }}>
+            <a href="https://www.facebook.com/pg/aipfinance/" target="_blank" rel="noreferrer noopener" aria-label="AIP Finance on Facebook" className="social-icon" style={{ color: "var(--color-primary)" }}>
               <IconBrandFacebook size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/anita-parker-sareen-11270a152" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" className="social-icon" style={{ color: "var(--color-primary)" }}>
+            <a href="https://www.linkedin.com/in/anita-parker-sareen-11270a152" target="_blank" rel="noreferrer noopener" aria-label="Anita Parker Sareen on LinkedIn" className="social-icon" style={{ color: "var(--color-primary)" }}>
               <IconBrandLinkedin size={24} />
             </a>
           </div>

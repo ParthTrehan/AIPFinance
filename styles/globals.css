@@ -44,6 +44,12 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
 
 @media(max-width:880px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-visual{margin-top:24px}}
 @media(max-width:768px){
+  .how-steps-grid{grid-template-columns:1fr 1fr !important;gap:32px 0}
+  .how-steps-grid > div{border-right:none !important;padding:0 16px}
+  .how-steps-grid > div:nth-child(odd){border-right:1px solid #E2E8F0 !important}
+  .faq-grid{grid-template-columns:1fr !important}
+  .testimonial-card-inner{padding:32px 24px !important}
+  .carousel-arrow{display:none !important}
   .hero{padding:64px 0 40px}
   .header-inner{height:64px}
   .site-logo{font-size:18px}
@@ -136,6 +142,9 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .enquiry-form-row{grid-template-columns:1fr !important}
 }
 
+.how-steps-grid{grid-template-columns:repeat(4,1fr) !important}
+.faq-grid{grid-template-columns:1fr 1fr}
+.carousel-arrow{display:flex}
 .footer{padding:48px 0;background:#fff;border-top:1px solid var(--card-border)}
 .text-center{text-align:center}
 .mt-8{margin-top:32px}

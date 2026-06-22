@@ -64,6 +64,9 @@ function HeroVisual() {
         <span style={{ fontSize: 12, color: "#64748B" }}>40+ lenders compared</span>
         <span style={{ fontSize: 12, fontWeight: 700, color: "#D4A017" }}>✓ No broker fee</span>
       </div>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "#94A3B8", marginTop: 12, lineHeight: 1.6 }}>
+        * Rates indicative only. Subject to lender criteria, fees and charges. Accurate as of {new Date().toLocaleString("en-AU", { month: "long", year: "numeric" })}.
+      </p>
     </div>
   );
 }
