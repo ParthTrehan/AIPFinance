@@ -50,6 +50,8 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .faq-grid{grid-template-columns:1fr !important}
   .testimonial-card-inner{padding:32px 24px !important}
   .carousel-arrow{display:none !important}
+  .services-carousel-grid{grid-template-columns:1fr !important;gap:32px !important}
+  .services-tabs button{font-size:13px;padding:8px 14px}
   .hero{padding:64px 0 40px}
   .header-inner{height:64px}
   .site-logo{font-size:18px}

@@ -1,15 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useInView } from "./useInView";
 import { IconHome, IconRefresh, IconFileDescription, IconBriefcase, IconCheck, IconArrowRight } from "./TablerIcons";
-
-interface ServiceRowProps {
-  eyebrow: string;
-  heading: React.ReactNode;
-  body: string;
-  visual: React.ReactNode;
-  flip: boolean;
-  bg: string;
-}
+import { useEnquiry } from "../context/EnquiryContext";
 
 function HomeLoansVisual() {
   return (
@@ -128,105 +120,192 @@ function BusinessVisual() {
   );
 }
 
-const rows: ServiceRowProps[] = [
+const services = [
   {
+    Icon: IconHome,
+    tab: "Home Loans",
     eyebrow: "HOME LOANS",
     heading: <>Buying your <em>first home?</em> We'll guide you through it.</>,
     body: "Buying your first home is one of the biggest decisions you'll ever make. AIP Finance walks you through every step — from understanding your borrowing power to settlement day. We handle the lender comparisons, the paperwork, and the negotiations so you don't have to.",
     visual: <HomeLoansVisual />,
-    flip: false,
-    bg: "#ffffff",
   },
   {
+    Icon: IconRefresh,
+    tab: "Refinancing",
     eyebrow: "REFINANCING",
     heading: <>Still on your old rate? You could be <em>saving thousands.</em></>,
     body: "Interest rates change constantly — and your loyalty to your current lender isn't rewarded. AIP Finance reviews your existing loan and compares it against 40+ lenders to find you a better deal. Most clients are surprised by how much they save.",
     visual: <RefinanceVisual />,
-    flip: true,
-    bg: "#F8FAFB",
   },
   {
+    Icon: IconFileDescription,
+    tab: "Low Doc Loans",
     eyebrow: "LOW DOC LOANS",
     heading: <>Self-employed? <em>Home ownership</em> is still within reach.</>,
     body: "If you don't have traditional payslips or tax returns, standard loan applications can feel impossible. AIP Finance specialises in low doc loans designed specifically for self-employed Australians — making home ownership a reality regardless of how you work.",
     visual: <LowDocVisual />,
-    flip: false,
-    bg: "#ffffff",
   },
   {
+    Icon: IconBriefcase,
+    tab: "Business & Commercial",
     eyebrow: "BUSINESS & COMMERCIAL",
     heading: <>Growing your <em>property portfolio</em> or business?</>,
     body: "Whether you're investing in commercial property or need equipment finance to grow your business, AIP Finance understands how commercial lending works. We review your cash flow, navigate the options, and find the most competitive rates for your situation.",
     visual: <BusinessVisual />,
-    flip: true,
-    bg: "#F8FAFB",
   },
 ];
 
-function ServiceRow({ eyebrow, heading, body, visual, flip, bg }: ServiceRowProps) {
-  const { ref, inView } = useInView(0.1);
+export default function Services() {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const { ref, inView } = useInView(0.08);
+  const { openModal } = useEnquiry();
 
-  const textAnim: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(0)" : `translateX(${flip ? "-24px" : "24px"})`,
-    transition: "opacity 0.6s ease, transform 0.6s ease",
-  };
+  const goTo = useCallback((index: number) => {
+    if (animating) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent(index);
+      setAnimating(false);
+    }, 220);
+  }, [animating]);
 
-  const visualAnim: React.CSSProperties = {
-    opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(0)" : `translateX(${flip ? "24px" : "-24px"})`,
-    transition: "opacity 0.6s 0.1s ease, transform 0.6s 0.1s ease",
-  };
+  const next = useCallback(() => goTo((current + 1) % services.length), [current, goTo]);
 
-  const text = (
-    <div className="service-text" style={textAnim}>
-      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 18 }}>
-        {eyebrow}
-      </p>
-      <h2 style={{ fontSize: "clamp(28px, 3.2vw, 38px)", marginBottom: 20, lineHeight: 1.2 }}>
-        {heading}
-      </h2>
-      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 28 }}>
-        {body}
-      </p>
-      <a href="tel:+61498241696" className="btn btn-primary" style={{ alignSelf: "flex-start" }}>
-        Call now — 0498 241 696
-      </a>
-    </div>
-  );
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, 6000);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
+  const s = services[current];
 
   return (
-    <section className="service-row-section" style={{ backgroundColor: bg, padding: "80px 24px" }}>
-      <div
-        ref={ref}
-        style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}
-        className="service-row-grid"
-      >
-        {flip ? (
-          <>
-            {text}
-            <div className="service-visual" style={visualAnim}>{visual}</div>
-          </>
-        ) : (
-          <>
-            <div className="service-visual" style={visualAnim}>{visual}</div>
-            {text}
-          </>
-        )}
+    <section
+      id="services-detail"
+      style={{ backgroundColor: "#F8FAFB", padding: "88px 24px" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div ref={ref} style={{ maxWidth: 1100, margin: "0 auto" }}>
+
+        {/* Section heading */}
+        <div style={{
+          textAlign: "center",
+          marginBottom: 40,
+          opacity: inView ? 1 : 0,
+          transform: inView ? "translateY(0)" : "translateY(20px)",
+          transition: "opacity 0.6s ease, transform 0.6s ease",
+        }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 12 }}>
+            WHAT WE DO
+          </p>
+          <h2 style={{ fontSize: "clamp(26px, 3.2vw, 38px)", lineHeight: 1.15, margin: 0 }}>
+            Services tailored to <em>your situation</em>
+          </h2>
+        </div>
+
+        {/* Tab navigation */}
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginBottom: 48,
+            opacity: inView ? 1 : 0,
+            transition: "opacity 0.6s 0.1s ease",
+          }}
+          className="services-tabs"
+        >
+          {services.map(({ tab, Icon }, i) => (
+            <button
+              key={tab}
+              onClick={() => goTo(i)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "10px 20px",
+                borderRadius: 40,
+                border: i === current ? "none" : "1px solid #E2E8F0",
+                backgroundColor: i === current ? "var(--color-primary)" : "#fff",
+                color: i === current ? "#fff" : "#64748B",
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 14,
+                fontWeight: i === current ? 600 : 500,
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                boxShadow: i === current ? "0 4px 16px rgba(15,43,91,0.2)" : "none",
+              }}
+            >
+              <Icon size={16} />
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Slide content */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 64,
+            alignItems: "center",
+            opacity: animating ? 0 : 1,
+            transform: animating ? "translateY(10px)" : "translateY(0)",
+            transition: "opacity 0.22s ease, transform 0.22s ease",
+          }}
+          className="services-carousel-grid"
+        >
+          {/* Visual */}
+          <div>{s.visual}</div>
+
+          {/* Text */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: 16 }}>
+              {s.eyebrow}
+            </p>
+            <h2 style={{ fontSize: "clamp(26px, 3vw, 36px)", marginBottom: 18, lineHeight: 1.2 }}>
+              {s.heading}
+            </h2>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#64748B", lineHeight: 1.8, marginBottom: 28 }}>
+              {s.body}
+            </p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <button onClick={openModal} className="btn btn-primary">
+                Get a free quote
+              </button>
+              <a href="tel:+61498241696" className="btn btn-ghost">
+                Call now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 40 }}>
+          {services.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to service ${i + 1}`}
+              style={{
+                width: i === current ? 24 : 8,
+                height: 8,
+                borderRadius: 4,
+                backgroundColor: i === current ? "var(--color-primary)" : "#CBD5E1",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
-  );
-}
-
-export default function Services() {
-  return (
-    <>
-      {rows.map((row) => (
-        <ServiceRow key={row.eyebrow} {...row} />
-      ))}
-    </>
   );
 }
