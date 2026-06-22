@@ -28,7 +28,7 @@ export default function Booking() {
   }, []);
 
   return (
-    <section id="booking" style={{ backgroundColor: "#ffffff", padding: "96px 24px" }}>
+    <section id="booking" className="booking-section" style={{ backgroundColor: "#ffffff", padding: "96px 24px" }}>
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <p

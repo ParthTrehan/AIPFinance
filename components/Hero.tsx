@@ -6,7 +6,7 @@ function HeroVisual() {
   ];
 
   return (
-    <div style={{
+    <div className="hero-visual-card" style={{
       background: "#fff",
       borderRadius: 20,
       padding: "28px",

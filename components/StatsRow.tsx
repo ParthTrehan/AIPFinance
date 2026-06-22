@@ -28,7 +28,7 @@ export default function StatsRow() {
               animation: inView ? `fadeUp 0.5s cubic-bezier(0.4,0,0.2,1) ${index * 80}ms both` : undefined,
             }}
           >
-            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 52, fontWeight: 600, color: "var(--color-accent)", margin: 0, lineHeight: 1 }}>
+            <p className="stat-value" style={{ fontFamily: "'Playfair Display', serif", fontSize: 52, fontWeight: 600, color: "var(--color-accent)", margin: 0, lineHeight: 1 }}>
               {value}
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#ffffff", fontWeight: 600, margin: "14px 0 8px" }}>
