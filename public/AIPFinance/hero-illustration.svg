@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" rx="24" fill="#F7FAFC"/>
+  <g transform="translate(90,120)">
+    <rect x="0" y="0" width="520" height="360" rx="16" fill="#fff" stroke="#E6EDF9" />
+    <rect x="560" y="20" width="420" height="320" rx="12" fill="#0A6CFF" opacity="0.06" />
+    <g transform="translate(24,24)">
+      <rect x="0" y="0" width="180" height="28" rx="6" fill="#0A6CFF" />
+      <rect x="0" y="48" width="260" height="20" rx="6" fill="#94A3B8" />
+      <rect x="0" y="84" width="380" height="12" rx="6" fill="#DDEBFF" />
+      <rect x="0" y="108" width="320" height="12" rx="6" fill="#DDEBFF" />
+      <rect x="0" y="136" width="240" height="12" rx="6" fill="#DDEBFF" />
+    </g>
+    <g transform="translate(560,120)">
+      <circle cx="80" cy="40" r="32" fill="#00B894" />
+      <rect x="132" y="18" width="220" height="14" rx="6" fill="#94A3B8" />
+      <rect x="132" y="44" width="180" height="10" rx="6" fill="#DDEBFF" />
+    </g>
+  </g>
+  <g transform="translate(120,520)">
+    <rect x="0" y="0" width="960" height="120" rx="10" fill="#fff" stroke="#E6EDF9" />
+    <text x="40" y="66" font-family="Inter, Arial, sans-serif" font-size="18" fill="#111827">Trusted by leading      Macquarie</text>CommBank Westpac NAB ANZ lenders 
+  </g>
+</svg>

@@ -1,77 +1,13 @@
-export default function CTABanner() {
+export default function CTABanner(){
   return (
-    <section style={{ backgroundColor: "#0F2B5B", padding: "80px 24px" }}>
-      <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
-          <p
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 14,
-              fontWeight: 500,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "#D4A017",
-              margin: 0,
-            }}
-          >
-            READY TO TALK
-          </p>
-        </div>
-        <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", color: "#ffffff", marginBottom: 22, lineHeight: 1.15 }}>
-          Ready to find a better <em>home loan?</em>
-        </h2>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: "#94A3B8", lineHeight: 1.8, marginBottom: 38 }}>
-          Whether you're buying, refinancing, or investing — let's talk. No cost, no obligation, just honest advice.
-        </p>
-        <div style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-          <a
-            href="#booking"
-            style={{
-              backgroundColor: "#D4A017",
-              color: "#ffffff",
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 15,
-              padding: "15px 32px",
-              borderRadius: 10,
-              textDecoration: "none",
-              transition: "background-color 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#b8890e";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#D4A017";
-            }}
-          >
-            Book your free consultation
-          </a>
-          <a
-            href="tel:+61498241696"
-            style={{
-              border: "2px solid rgba(255,255,255,0.35)",
-              color: "#ffffff",
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 15,
-              padding: "15px 32px",
-              borderRadius: 10,
-              textDecoration: "none",
-              transition: "border-color 0.15s ease, background-color 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = "rgba(255,255,255,0.7)";
-              el.style.backgroundColor = "rgba(255,255,255,0.08)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = "rgba(255,255,255,0.35)";
-              el.style.backgroundColor = "transparent";
-            }}
-          >
-            Call +61 498 241 696
-          </a>
+    <section style={{background:'linear-gradient(90deg,var(--neutral-100),#fff)',padding:'64px 0'}}>
+      <div className="container card text-center">
+        <p style={{textTransform:'uppercase',letterSpacing:'0.12em',fontSize:12,color:'var(--muted)',margin:0}}>Ready to talk</p>
+        <h2 style={{marginTop:8}}>Ready to find a better <em>home loan?</em></h2>
+        <p className="p-muted" style={{maxWidth:720,margin:'8px auto 18px'}}>Whether you're buying, refinancing, or investing — get a free, no-obligation consultation and tailored loan comparison from our Melbourne broker.</p>
+        <div style={{display:'flex',gap:12,justifyContent:'center',marginTop:12}}>
+          <a className="btn btn-primary" href="#booking">Book your free consultation</a>
+          <a className="btn btn-ghost" href="tel:+61498241696">Call +61 498 241 696</a>
         </div>
       </div>
     </section>

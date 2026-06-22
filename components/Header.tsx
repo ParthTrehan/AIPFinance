@@ -12,91 +12,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        backgroundColor: "#0F2B5B",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
-        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.25)" : "none",
-        transition: "box-shadow 0.2s ease",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "0 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: 68,
-        }}
-      >
-        {/* Logo */}
-        <a href="/" style={{ textDecoration: "none" }}>
-          <span
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 18,
-              color: "#ffffff",
-              letterSpacing: "0.02em",
-            }}
-          >
-            AIP{" "}
-            <span style={{ color: "#D4A017" }}>Finance</span>
-          </span>
+    <header className="header" aria-label="Top navigation">
+      <div className="header-inner">
+        <a href="/" className="site-logo" aria-label="AIP Finance home">
+          AIP <span style={{color:'var(--color-accent)'}}>Finance</span>
         </a>
 
-        {/* Right */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <a
-            href="tel:+61498241696"
-            style={{
-              display: "none",
-              alignItems: "center",
-              gap: 6,
-              color: "rgba(255,255,255,0.75)",
-              fontSize: 14,
-              fontWeight: 500,
-              textDecoration: "none",
-            }}
-            className="sm-flex"
-          >
-            <IconPhone size={15} />
-            +61 498 241 696
-          </a>
-
-          <a
-            href="#booking"
-            style={{
-              backgroundColor: "#D4A017",
-              color: "#ffffff",
-              fontWeight: 600,
-              fontSize: 14,
-              padding: "10px 22px",
-              borderRadius: 8,
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-              transition: "background-color 0.15s ease",
-            }}
-            onMouseEnter={(e) =>
-              ((e.target as HTMLElement).style.backgroundColor = "#b8890e")
-            }
-            onMouseLeave={(e) =>
-              ((e.target as HTMLElement).style.backgroundColor = "#D4A017")
-            }
-          >
-            Book a Free Call
-          </a>
-        </div>
+        <nav style={{display:'flex',alignItems:'center',gap:16}}>
+          <a className="small p-muted" href="#services">Services</a>
+          <a className="small p-muted" href="#testimonials">Testimonials</a>
+          <a className="btn btn-primary" href="#booking">Book a Free Call</a>
+        </nav>
       </div>
-
-      {/* moved small helper to globals.css */}
     </header>
   );
 }

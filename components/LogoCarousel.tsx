@@ -2,7 +2,7 @@ import React from "react";
 
 const DEFAULT_LOGOS = [
   {
-    src: "/AIPFinance/logos/anz-logo.jpg",
+    src: "/AIPFinance/logos/anz-logo.png",
     alt: "ANZ",
   },
   {
@@ -16,6 +16,10 @@ const DEFAULT_LOGOS = [
   {
     src: "/AIPFinance/logos/commbank-logo.svg",
     alt: "Commonwealth Bank",
+  },
+  {
+    src: "/AIPFinance/logos/macquarie-bank-logo.png",
+    alt: "Macquarie Bank",
   },
 ];
 
