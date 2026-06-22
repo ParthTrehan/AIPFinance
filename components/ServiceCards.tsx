@@ -1,5 +1,5 @@
 import { useInView } from "./useInView";
-import { IconHome, IconTrendingUp, IconRefresh, IconWallet } from "./TablerIcons";
+import { IconHome, IconTrendingUp, IconRefresh, IconWallet, IconCheck } from "./TablerIcons";
 
 const cards = [
   {
@@ -107,11 +107,13 @@ export default function ServiceCards() {
                 Includes
               </p>
 
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
                 {items.map((item) => (
-                  <li key={item} style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#475569", lineHeight: 1.5, paddingLeft: 12, position: "relative" }}>
-                    <span style={{ position: "absolute", left: 0, color: "var(--color-accent)", fontWeight: 700 }}>–</span>
-                    {item}
+                  <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
+                    <div style={{ width: 16, height: 16, borderRadius: "50%", backgroundColor: "rgba(212,160,23,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
+                      <IconCheck size={10} style={{ color: "var(--color-accent)" }} />
+                    </div>
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#475569", lineHeight: 1.5 }}>{item}</span>
                   </li>
                 ))}
               </ul>
