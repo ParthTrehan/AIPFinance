@@ -20,19 +20,10 @@ export default function Booking() {
     };
 
     script.addEventListener('load', initCalendly);
-    // Try to init in case Calendly already loaded
     initCalendly();
-
-    const onMessage = (e: MessageEvent) => {
-      if (e.data?.event === 'calendly.event_scheduled') {
-        console.log('Calendly event scheduled', e.data);
-      }
-    };
-    window.addEventListener('message', onMessage);
 
     return () => {
       script.removeEventListener('load', initCalendly);
-      window.removeEventListener('message', onMessage);
     };
   }, []);
 
