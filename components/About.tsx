@@ -49,8 +49,8 @@ export default function About() {
           transform: inView ? "translateX(0)" : "translateX(24px)",
           transition: "opacity 0.6s 0.15s ease, transform 0.6s 0.15s ease",
         }}>
-          <div style={{ width: 100, height: 100, borderRadius: "50%", background: "linear-gradient(135deg, #0F2B5B 0%, #1a3a7a 100%)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto" }}>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 28, color: "#ffffff" }}>AP</span>
+          <div style={{ width: 110, height: 110, borderRadius: "50%", overflow: "hidden", margin: "0 auto", border: "3px solid #E2E8F0" }}>
+            <img src="/AIPFinance/anita.jpg" alt="Anita Parker Sareen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
           </div>
           <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#0F2B5B", marginTop: 18, marginBottom: 4 }}>
             Anita Parker Sareen
