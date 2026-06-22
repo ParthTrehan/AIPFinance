@@ -44,9 +44,7 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
 
 @media(max-width:880px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-visual{margin-top:24px}}
 @media(max-width:768px){
-  .how-steps-grid{grid-template-columns:1fr 1fr !important;gap:32px 0}
-  .how-steps-grid > div{border-right:none !important;padding:0 16px}
-  .how-steps-grid > div:nth-child(odd){border-right:1px solid #E2E8F0 !important}
+  .how-steps-grid{grid-template-columns:1fr !important;gap:32px !important}
   .faq-grid{grid-template-columns:1fr !important}
   .testimonial-card-inner{padding:32px 24px !important}
   .carousel-arrow{display:none !important}
@@ -129,10 +127,8 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
 
 .logo-marquee-section{background:transparent;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);padding:20px 0}
 .logo-marquee-label{text-align:center;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin:0 0 12px}
-.logo-marquee{display:flex;gap:30px;align-items:center;overflow:hidden}
-.logo-track{display:flex;gap:30px;align-items:center;animation:marquee 20s linear infinite}
-.logo-item{flex:0 0 auto;width:180px;display:flex;align-items:center;justify-content:center}
-.logo-item img{max-height:40px;object-fit:contain}
+.logo-marquee{display:flex;gap:12px;align-items:center;overflow:hidden}
+.logo-track{display:flex;gap:12px;align-items:center;animation:marquee 28s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Enquiry modal: desktop shows centered card, mobile shows bottom sheet */

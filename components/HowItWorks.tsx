@@ -5,22 +5,22 @@ const steps = [
   {
     step: "01",
     title: "Tell us your situation",
-    desc: "Fill in the quick enquiry form or give Anita a call. No commitment, no jargon — just a conversation about what you need.",
+    desc: "A free call or quick enquiry form — no jargon, no commitment.",
   },
   {
     step: "02",
     title: "We search 40+ lenders",
-    desc: "Anita compares rates, fees, and lending policies across every major Australian bank and non-bank lender to find the right fit.",
+    desc: "Anita compares rates, fees and policies across every major bank and non-bank lender.",
   },
   {
     step: "03",
-    title: "You get a personalised recommendation",
-    desc: "A clear side-by-side comparison with a recommended loan — explained in plain English, with no pressure to proceed.",
+    title: "Get a clear recommendation",
+    desc: "A plain-English side-by-side comparison with our best pick — no pressure to proceed.",
   },
   {
     step: "04",
-    title: "We manage everything to settlement",
-    desc: "From application to keys in hand, Anita handles the paperwork, lender negotiations and follow-ups so you can focus on moving forward.",
+    title: "We handle everything to settlement",
+    desc: "Paperwork, lender negotiations, follow-ups — Anita manages it all so you don't have to.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" style={{ backgroundColor: "#fff", padding: "88px 24px" }}>
-      <div ref={ref} style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div ref={ref} style={{ maxWidth: 1000, margin: "0 auto" }}>
         <div style={{
           textAlign: "center",
           marginBottom: 56,
@@ -46,18 +46,20 @@ export default function HowItWorks() {
           </h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, position: "relative" }} className="how-steps-grid">
+        {/* 2×2 grid — far more breathing room than 4 columns */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px 64px" }} className="how-steps-grid">
           {steps.map(({ step, title, desc }, i) => (
             <div
               key={step}
               style={{
-                position: "relative",
-                padding: "0 28px",
-                borderRight: i < steps.length - 1 ? "1px solid #E2E8F0" : "none",
+                display: "flex",
+                gap: 20,
+                alignItems: "flex-start",
                 opacity: inView ? undefined : 0,
                 animation: inView ? `fadeUp 0.55s cubic-bezier(0.4,0,0.2,1) ${i * 100}ms both` : undefined,
               }}
             >
+              {/* Circle number */}
               <div style={{
                 width: 52,
                 height: 52,
@@ -66,13 +68,15 @@ export default function HowItWorks() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                marginBottom: 20,
                 flexShrink: 0,
               }}>
                 <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, color: "var(--color-accent)" }}>{step}</span>
               </div>
-              <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--color-primary)", marginBottom: 10, lineHeight: 1.3 }}>{title}</h3>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#64748B", lineHeight: 1.75, margin: 0 }}>{desc}</p>
+              {/* Text */}
+              <div>
+                <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--color-primary)", marginBottom: 8, lineHeight: 1.3 }}>{title}</h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#64748B", lineHeight: 1.75, margin: 0 }}>{desc}</p>
+              </div>
             </div>
           ))}
         </div>

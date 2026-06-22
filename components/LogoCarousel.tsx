@@ -1,33 +1,37 @@
 import React from "react";
 
-const DEFAULT_LOGOS = [
-  { src: "/AIPFinance/logos/anz-logo.png", alt: "ANZ" },
-  { src: "/AIPFinance/logos/westpac-logo.jpg", alt: "Westpac" },
-  { src: "/AIPFinance/logos/nab-logo.svg", alt: "NAB" },
-  { src: "/AIPFinance/logos/macquarie-bank-logo.png", alt: "Macquarie Bank" },
-  { src: "/AIPFinance/logos/bankwest-logo.svg", alt: "Bankwest" },
-  { src: "/AIPFinance/logos/amp-logo.svg", alt: "AMP" },
-  { src: "/AIPFinance/logos/suncorp-logo.svg", alt: "Suncorp" },
-  { src: "/AIPFinance/logos/me-bank-logo.svg", alt: "ME Bank" },
-  { src: "/AIPFinance/logos/firstmac-logo.svg", alt: "Firstmac" },
-  { src: "/AIPFinance/logos/bank-of-melbourne-logo.svg", alt: "Bank of Melbourne" },
-  { src: "/AIPFinance/logos/citibank-logo.svg", alt: "Citibank" },
+const lenders = [
+  "ANZ", "Westpac", "NAB", "Macquarie", "Bankwest",
+  "AMP", "Suncorp", "ME Bank", "Firstmac", "Bank of Melbourne", "Citibank",
 ];
 
-type Logo = { src: string; alt?: string };
-
-export default function LogoCarousel({ logos = DEFAULT_LOGOS }: { logos?: Logo[] }) {
-  const looped = [...logos, ...logos];
+export default function LogoCarousel() {
+  const doubled = [...lenders, ...lenders];
 
   return (
     <section className="logo-marquee-section">
       <p className="logo-marquee-label">Lenders we work with</p>
-      <div className="container" style={{overflow:'hidden'}}>
+      <div className="container" style={{ overflow: "hidden" }}>
         <div className="logo-marquee">
           <div className="logo-track">
-            {looped.map((l, i) => (
-              <div className="logo-item" key={`${l.alt || i}-${i}`}>
-                <img src={l.src} alt={l.alt || `logo-${i}`} loading="lazy" />
+            {doubled.map((name, i) => (
+              <div
+                key={`${name}-${i}`}
+                style={{
+                  flexShrink: 0,
+                  padding: "8px 22px",
+                  border: "1px solid #E2E8F0",
+                  borderRadius: 40,
+                  backgroundColor: "#fff",
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: "#374151",
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 1px 4px rgba(15,43,91,0.05)",
+                }}
+              >
+                {name}
               </div>
             ))}
           </div>

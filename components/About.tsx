@@ -5,7 +5,6 @@ const trustPoints = [
   "Access to 40+ lenders",
   "No cost to you",
   "Melbourne based",
-  "Cert IV Finance & Mortgage Broking",
   "Connective Network member",
 ];
 
