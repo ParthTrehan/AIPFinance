@@ -73,6 +73,7 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .stats-counter-grid > div:nth-last-child(-n+2){border-bottom:none}
   .stat-value{font-size:38px !important}
   .hero-visual-card{padding:16px !important}
+  .hero-btn{padding:10px 16px !important;font-size:13px !important}
   .hero-rate-number{font-size:38px !important}
   .hero-rate-suffix{font-size:16px !important}
   .cta-buttons{flex-direction:column !important;align-items:stretch !important}
