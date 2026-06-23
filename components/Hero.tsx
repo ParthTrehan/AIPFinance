@@ -2,9 +2,9 @@ import { useEnquiry } from "../context/EnquiryContext";
 
 function HeroVisual() {
   const lenders = [
-    { name: "ANZ", rate: "5.89%", best: true },
-    { name: "NAB", rate: "6.04%", best: false },
-    { name: "Westpac", rate: "6.19%", best: false },
+    { name: "ANZ",     img: "/logos/anz-logo.png",     rate: "5.89%", best: true },
+    { name: "NAB",     img: "/logos/nab-logo.png",     rate: "6.04%", best: false },
+    { name: "Westpac", img: "/logos/westpac-logo.png", rate: "6.19%", best: false },
   ];
 
   return (
@@ -25,12 +25,12 @@ function HeroVisual() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {lenders.map(({ name, rate, best }) => (
+        {lenders.map(({ name, img, rate, best }) => (
           <div key={name} style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "12px 14px",
+            padding: "10px 14px",
             background: best ? "#EFF6FF" : "#F8FAFB",
             borderRadius: 10,
             border: best ? "1px solid rgba(15,43,91,0.12)" : "1px solid transparent",
@@ -47,7 +47,7 @@ function HeroVisual() {
                   letterSpacing: "0.06em",
                 }}>BEST</span>
               )}
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#1E293B" }}>{name}</span>
+              <img src={img} alt={name} style={{ height: 20, width: "auto", objectFit: "contain", display: "block" }} />
             </div>
             <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
           </div>

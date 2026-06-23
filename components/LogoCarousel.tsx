@@ -28,9 +28,9 @@ export default function LogoCarousel() {
                 key={`${name}-${i}`}
                 style={{
                   flexShrink: 0,
-                  height: 48,
-                  minWidth: img ? 100 : undefined,
-                  padding: img ? "0 20px" : "0 22px",
+                  height: 60,
+                  minWidth: img ? 120 : undefined,
+                  padding: img ? "0 24px" : "0 22px",
                   border: "1px solid #E2E8F0",
                   borderRadius: 40,
                   backgroundColor: "#fff",
@@ -44,7 +44,7 @@ export default function LogoCarousel() {
                   <img
                     src={img}
                     alt={`${name} logo`}
-                    style={{ height: 26, width: "auto", objectFit: "contain", display: "block" }}
+                    style={{ height: 38, width: "auto", objectFit: "contain", display: "block" }}
                   />
                 ) : (
                   <span style={{
