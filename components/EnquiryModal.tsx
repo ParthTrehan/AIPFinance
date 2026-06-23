@@ -21,14 +21,23 @@ export default function EnquiryModal() {
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  // Drive enter/exit animation
+  // Drive enter/exit animation + lock body scroll (including iOS Safari)
   useEffect(() => {
     if (isOpen) {
       setVisible(true);
-      document.body.style.overflow = "hidden";
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflowY = "scroll";
+      document.body.dataset.scrollY = String(scrollY);
     } else {
-      document.body.style.overflow = "";
-      // Reset form state after modal closes
+      const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflowY = "";
+      window.scrollTo({ top: scrollY, behavior: "instant" });
       const t = setTimeout(() => {
         setSubmitted(false);
         setError(false);
