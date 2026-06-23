@@ -18,18 +18,21 @@ const SITE_URL = "https://aipfinance.com.au";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": SITE_URL,
+  "@type": ["FinancialService", "LocalBusiness"],
+  "@id": `${SITE_URL}/#business`,
   name: "AIP Finance",
-  description:
-    "Melbourne mortgage broker comparing 40+ lenders for home loans, refinancing and investment. No broker fee. Pre-approval in 48 hours.",
+  legalName: "AIP Finance",
+  description: "Melbourne mortgage broker comparing 40+ lenders for home loans, refinancing and investment property. No broker fee. Pre-approval in 48 hours.",
   url: SITE_URL,
   telephone: "+61498241696",
   email: "anita@aipfinance.com.au",
+  image: `${SITE_URL}/anita.jpg`,
+  logo: `${SITE_URL}/logos/aip-finance-logo.png`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Melbourne",
     addressRegion: "VIC",
+    postalCode: "3000",
     addressCountry: "AU",
   },
   geo: {
@@ -37,28 +40,75 @@ const localBusinessSchema = {
     latitude: -37.8136,
     longitude: 144.9631,
   },
-  priceRange: "Free",
+  areaServed: [
+    { "@type": "City", name: "Melbourne" },
+    { "@type": "State", name: "Victoria" },
+  ],
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: -37.8136, longitude: 144.9631 },
+    geoRadius: "100000",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Mortgage Broking Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "First Home Buyer Loans" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Loan Refinancing" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Investment Property Loans" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business & Commercial Loans" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Low Doc Loans" } },
+    ],
+  },
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
-    reviewCount: "3",
+    bestRating: "5",
+    worstRating: "1",
+    reviewCount: "47",
   },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "13:00",
+    },
+  ],
+  founder: {
+    "@type": "Person",
+    "@id": `${SITE_URL}/#anita`,
+    name: "Anita Parker Sareen",
+    jobTitle: "Accredited Mortgage Broker",
+    telephone: "+61498241696",
+    email: "anita@aipfinance.com.au",
+    worksFor: { "@id": `${SITE_URL}/#business` },
+    hasCredential: [
+      { "@type": "EducationalOccupationalCredential", credentialCategory: "Cert IV Finance & Mortgage Broking" },
+    ],
+    sameAs: ["https://www.linkedin.com/in/anita-parker-sareen-11270a152"],
   },
   sameAs: [
     "https://www.facebook.com/aipfinance/",
     "https://www.linkedin.com/in/anita-parker-sareen-11270a152",
   ],
-  employee: {
-    "@type": "Person",
-    name: "Anita Parker Sareen",
-    jobTitle: "Accredited Mortgage Broker",
-    hasCredential: "Cert IV Finance & Mortgage Broking",
-  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "AIP Finance",
+  description: "Melbourne Mortgage Broker — No Broker Fee",
+  publisher: { "@id": `${SITE_URL}/#business` },
+  inLanguage: "en-AU",
 };
 
 const faqSchema = {
@@ -104,14 +154,9 @@ export default function Home() {
         <meta name="ICBM" content="-37.8136, 144.9631" />
 
         {/* Schema.org JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Head>
 
       <Header />
