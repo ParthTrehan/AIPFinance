@@ -50,7 +50,7 @@ const localBusinessSchema = {
     closes: "18:00",
   },
   sameAs: [
-    "https://www.facebook.com/pg/aipfinance/",
+    "https://www.facebook.com/aipfinance",
     "https://www.linkedin.com/in/anita-parker-sareen-11270a152",
   ],
   employee: {
