@@ -61,6 +61,11 @@ export default function EnquiryModal() {
     }
   }, [isOpen]);
 
+  function handleFieldBlur(field: "phone" | "email", value: string) {
+    const err = field === "phone" ? validatePhone(value) : validateEmail(value);
+    setFieldErrors((prev) => ({ ...prev, [field]: err || undefined }));
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -151,6 +156,7 @@ export default function EnquiryModal() {
           fieldErrors={fieldErrors}
           onSubmit={handleSubmit}
           onClose={closeModal}
+          onFieldBlur={handleFieldBlur}
         />
       </div>
 
@@ -183,6 +189,7 @@ export default function EnquiryModal() {
           fieldErrors={fieldErrors}
           onSubmit={handleSubmit}
           onClose={closeModal}
+          onFieldBlur={handleFieldBlur}
         />
       </div>
     </>
@@ -196,6 +203,7 @@ function ModalContent({
   fieldErrors,
   onSubmit,
   onClose,
+  onFieldBlur,
 }: {
   submitted: boolean;
   loading: boolean;
@@ -203,6 +211,7 @@ function ModalContent({
   fieldErrors: FieldErrors;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   onClose: () => void;
+  onFieldBlur: (field: "phone" | "email", value: string) => void;
 }) {
   return (
     <div style={{ padding: "28px 32px 36px" }}>
@@ -249,6 +258,7 @@ function ModalContent({
                 type="tel"
                 placeholder="0400 000 000"
                 style={{ ...inputStyle, border: fieldErrors.phone ? "2px solid #EF4444" : "1px solid #E2E8F0" }}
+                onBlur={(e) => onFieldBlur("phone", e.currentTarget.value)}
               />
             </Field>
           </div>
@@ -260,6 +270,7 @@ function ModalContent({
               type="email"
               placeholder="jane@email.com"
               style={{ ...inputStyle, border: fieldErrors.email ? "2px solid #EF4444" : "1px solid #E2E8F0" }}
+              onBlur={(e) => onFieldBlur("email", e.currentTarget.value)}
             />
           </Field>
 
