@@ -72,7 +72,9 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .stats-counter-grid > div{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.1)}
   .stats-counter-grid > div:nth-last-child(-n+2){border-bottom:none}
   .stat-value{font-size:38px !important}
-  .hero-visual-card{padding:20px !important}
+  .hero-visual-card{padding:16px !important}
+  .hero-rate-number{font-size:38px !important}
+  .hero-rate-suffix{font-size:16px !important}
   .cta-buttons{flex-direction:column !important;align-items:stretch !important}
   .cta-buttons .btn{text-align:center;justify-content:center}
   .booking-section{padding:56px 20px !important}

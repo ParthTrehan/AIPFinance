@@ -20,8 +20,8 @@ function HeroVisual() {
         Best rate found
       </p>
       <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 22 }}>
-        <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 600, color: "#0F2B5B", lineHeight: 1 }}>5.89</span>
-        <span style={{ fontSize: 20, color: "#0F2B5B", fontWeight: 600 }}>% p.a.</span>
+        <span className="hero-rate-number" style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 600, color: "#0F2B5B", lineHeight: 1 }}>5.89</span>
+        <span className="hero-rate-suffix" style={{ fontSize: 20, color: "#0F2B5B", fontWeight: 600 }}>% p.a.</span>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -64,7 +64,8 @@ function HeroVisual() {
         paddingTop: 16,
         borderTop: "1px solid #E2E8F0",
         display: "flex",
-        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: "6px 16px",
       }}>
         <span style={{ fontSize: 12, color: "#64748B" }}>40+ lenders compared</span>
         <span style={{ fontSize: 12, fontWeight: 700, color: "#D4A017" }}>✓ No broker fee</span>
