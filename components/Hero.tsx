@@ -47,15 +47,35 @@ function HeroVisual() {
               justifyContent: "space-between",
               padding: "0 14px",
               height: 52,
-              minHeight: 52,
-              maxHeight: 52,
-              overflow: "hidden",
               background: best ? "#FFFBF0" : "#F8FAFB",
               borderRadius: 10,
               border: best ? "1.5px solid #D4A017" : "1px solid transparent",
+              boxSizing: "border-box",
             }}>
-              <div style={{ width: 80, height: 28, overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center" }}>
-                <img src={img} alt={name} width={80} height={28} style={{ width: 80, height: 28, objectFit: "contain", objectPosition: "left center", display: "block" }} />
+              <div style={{
+                width: 88,
+                height: 28,
+                flexShrink: 0,
+                backgroundColor: "#fff",
+                borderRadius: 6,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "0 6px",
+                boxSizing: "border-box",
+              }}>
+                <img
+                  src={img}
+                  alt={name}
+                  style={{
+                    display: "block",
+                    maxWidth: 76,
+                    maxHeight: 22,
+                    width: "auto",
+                    height: "auto",
+                    objectFit: "contain",
+                  }}
+                />
               </div>
               <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
             </div>
