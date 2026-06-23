@@ -116,9 +116,9 @@ export default function Hero() {
             AIP Finance compares 40+ lenders to find a lower rate for your home loan, refinance or investment — with no broker fee.
           </p>
 
-          <div className="hero-btns" style={{ marginTop: 28, display: "flex", gap: 12, alignItems: "center" }}>
-            <button className="btn btn-primary hero-btn" onClick={openModal} style={{ flex: 1, justifyContent: "center" }}>Get a free quote</button>
-            <a className="btn btn-accent hero-btn" href="tel:+61498241696" style={{ flex: 1, justifyContent: "center" }}>Call now</a>
+          <div className="hero-btns" style={{ marginTop: 28, display: "flex", gap: 12, alignItems: "stretch" }}>
+            <button className="btn btn-primary hero-btn" onClick={openModal} style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>Get a free quote</button>
+            <a className="btn btn-accent hero-btn" href="tel:+61498241696" style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>Call now</a>
           </div>
         </div>
 
