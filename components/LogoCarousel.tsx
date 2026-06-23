@@ -5,13 +5,13 @@ const lenders: { name: string; img?: string }[] = [
   { name: "Westpac",           img: "/logos/westpac-logo.jpg" },
   { name: "NAB",               img: "/logos/nab-logo.png" },
   { name: "Macquarie",         img: "/logos/macquarie-bank-logo.png" },
-  { name: "Bankwest" },
-  { name: "AMP" },
-  { name: "Suncorp" },
-  { name: "ME Bank" },
-  { name: "Firstmac" },
-  { name: "Bank of Melbourne" },
-  { name: "Citibank" },
+  { name: "Bankwest",          img: "/logos/bankwest-logo.png" },
+  { name: "AMP",               img: "/logos/amp-logo.png" },
+  { name: "Suncorp",           img: "/logos/suncorp-logo.png" },
+  { name: "ME Bank",           img: "/logos/me-bank-logo.png" },
+  { name: "Firstmac",          img: "/logos/firstmac-logo.png" },
+  { name: "Bank of Melbourne", img: "/logos/bank-of-melbourne-logo.png" },
+  { name: "Citibank",          img: "/logos/citibank-logo.png" },
 ];
 
 export default function LogoCarousel() {
