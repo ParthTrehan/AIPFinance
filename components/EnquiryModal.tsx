@@ -16,9 +16,9 @@ const loanTypes = [
 type FieldErrors = { phone?: string; email?: string };
 
 function validatePhone(val: string) {
-  const digits = val.replace(/\D/g, "");
-  if (digits.length < 8 || digits.length > 15) return "Enter a valid phone number";
-  if (!/^[\d\s+\-().]{8,20}$/.test(val)) return "Enter a valid phone number";
+  const stripped = val.replace(/[\s\-\(\)]/g, "");
+  // Australian mobile (04) and landlines (02, 03, 07, 08), with optional +61 prefix
+  if (!/^(\+?61|0)(2|3|4|7|8)\d{8}$/.test(stripped)) return "Enter a valid Australian phone number";
   return "";
 }
 
@@ -248,7 +248,7 @@ function ModalContent({
                 required
                 type="tel"
                 placeholder="0400 000 000"
-                style={{ ...inputStyle, borderColor: fieldErrors.phone ? "#EF4444" : "#E2E8F0" }}
+                style={{ ...inputStyle, border: fieldErrors.phone ? "2px solid #EF4444" : "1px solid #E2E8F0" }}
               />
             </Field>
           </div>
@@ -259,7 +259,7 @@ function ModalContent({
               required
               type="email"
               placeholder="jane@email.com"
-              style={{ ...inputStyle, borderColor: fieldErrors.email ? "#EF4444" : "#E2E8F0" }}
+              style={{ ...inputStyle, border: fieldErrors.email ? "2px solid #EF4444" : "1px solid #E2E8F0" }}
             />
           </Field>
 
