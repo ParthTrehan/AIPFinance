@@ -72,7 +72,7 @@ export default function About() {
             ))}
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: 18, marginTop: 28, paddingTop: 22, borderTop: "1px solid #E2E8F0" }}>
-            <a href="https://www.facebook.com/pg/aipfinance/" target="_blank" rel="noreferrer noopener" aria-label="AIP Finance on Facebook" className="social-icon" style={{ color: "var(--color-primary)" }}>
+            <a href="https://www.facebook.com/aipfinance/" target="_blank" rel="noreferrer noopener" aria-label="AIP Finance on Facebook" className="social-icon" style={{ color: "var(--color-primary)" }}>
               <IconBrandFacebook size={24} />
             </a>
             <a href="https://www.linkedin.com/in/anita-parker-sareen-11270a152" target="_blank" rel="noreferrer noopener" aria-label="Anita Parker Sareen on LinkedIn" className="social-icon" style={{ color: "var(--color-primary)" }}>
