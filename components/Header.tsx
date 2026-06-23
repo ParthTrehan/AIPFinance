@@ -64,16 +64,17 @@ export default function Header() {
 
         {/* Right: phone + CTA + hamburger */}
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          {/* Phone number — desktop shows text+icon, mobile shows icon only */}
           <a
             href="tel:+61498241696"
-            className="phone-link"
+            className="header-phone"
             style={{
               display: "flex",
               alignItems: "center",
               gap: 6,
               color: "#374151",
               fontSize: 14,
-              fontWeight: 500,
+              fontWeight: 600,
               textDecoration: "none",
               transition: "color 0.15s ease",
             }}
@@ -84,11 +85,11 @@ export default function Header() {
               ((e.currentTarget as HTMLElement).style.color = "#374151")
             }
           >
-            <IconPhone size={15} />
-            +61 498 241 696
+            <IconPhone size={16} />
+            <span className="header-phone-text">0498 241 696</span>
           </a>
 
-          <a className="btn btn-primary" href="tel:+61498241696" style={{ whiteSpace: "nowrap" }}>
+          <a className="btn btn-primary desktop-cta" href="tel:+61498241696" style={{ whiteSpace: "nowrap" }}>
             Call now
           </a>
 

@@ -54,8 +54,9 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .header-inner{height:64px}
   .site-logo{font-size:18px}
   .desktop-nav{display:none !important}
-  .phone-link{display:none !important}
+  .desktop-cta{display:none !important}
   .mobile-menu-btn{display:flex !important}
+  .hero-btns{max-width:420px}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .trust-item{border-right:none;border-bottom:1px solid var(--card-border)}
   .trust-item:nth-child(odd){border-right:none}
@@ -73,7 +74,7 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .stats-counter-grid > div:nth-last-child(-n+2){border-bottom:none}
   .stat-value{font-size:38px !important}
   .hero-visual-card{padding:16px !important}
-  .hero-btn{padding:10px 16px !important;font-size:13px !important}
+  .hero-btn{font-size:14px !important}
   .hero-rate-number{font-size:38px !important}
   .hero-rate-suffix{font-size:16px !important}
   .cta-buttons{flex-direction:column !important;align-items:stretch !important}
