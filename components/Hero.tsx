@@ -47,7 +47,9 @@ function HeroVisual() {
                   letterSpacing: "0.06em",
                 }}>BEST</span>
               )}
-              <img src={img} alt={name} style={{ height: 20, width: "auto", objectFit: "contain", display: "block" }} />
+              <div style={{ width: 72, height: 28, display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                <img src={img} alt={name} style={{ maxHeight: 28, maxWidth: 72, width: "auto", objectFit: "contain", display: "block" }} />
+              </div>
             </div>
             <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
           </div>
