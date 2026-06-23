@@ -16,9 +16,10 @@ const loanTypes = [
 type FieldErrors = { phone?: string; email?: string };
 
 function validatePhone(val: string) {
-  const stripped = val.replace(/[\s\-\(\)]/g, "");
-  // Australian mobile (04) and landlines (02, 03, 07, 08), with optional +61 prefix
-  if (!/^(\+?61|0)(2|3|4|7|8)\d{8}$/.test(stripped)) return "Enter a valid Australian phone number";
+  let stripped = val.replace(/[\s\-\(\)]/g, "");
+  if (stripped.startsWith("0")) stripped = stripped.slice(1);
+  // Expect 9 digits: mobile (4XXXXXXXX) or landline (2/3/7/8 XXXXXXXX)
+  if (!/^[23478]\d{8}$/.test(stripped)) return "Enter a valid Australian phone number";
   return "";
 }
 
@@ -89,7 +90,15 @@ export default function EnquiryModal() {
     setError(false);
 
     const params = new URLSearchParams();
-    raw.forEach((val, key) => params.append(key, val.toString()));
+    raw.forEach((val, key) => {
+      if (key === "phone") {
+        let p = val.toString().replace(/[\s\-\(\)]/g, "");
+        if (p.startsWith("0")) p = p.slice(1);
+        params.append(key, "+61 " + p);
+      } else {
+        params.append(key, val.toString());
+      }
+    });
 
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -252,14 +261,17 @@ function ModalContent({
               <input name="name" required placeholder="Jane Smith" style={inputStyle} />
             </Field>
             <Field label="Phone number *" error={fieldErrors.phone}>
-              <input
-                name="phone"
-                required
-                type="tel"
-                placeholder="0400 000 000"
-                style={{ ...inputStyle, border: fieldErrors.phone ? "2px solid #EF4444" : "1px solid #E2E8F0" }}
-                onBlur={(e) => onFieldBlur("phone", e.currentTarget.value)}
-              />
+              <div style={{ display: "flex", alignItems: "stretch", border: fieldErrors.phone ? "2px solid #EF4444" : "1px solid #E2E8F0", borderRadius: 10, overflow: "hidden", backgroundColor: "#FAFAFA" }}>
+                <span style={{ padding: "11px 12px", backgroundColor: "#F1F5F9", borderRight: "1px solid #E2E8F0", fontSize: 14, fontWeight: 600, color: "#374151", display: "flex", alignItems: "center", whiteSpace: "nowrap", userSelect: "none" }}>+61</span>
+                <input
+                  name="phone"
+                  required
+                  type="tel"
+                  placeholder="412 345 678"
+                  style={{ ...inputStyle, border: "none", borderRadius: 0, flex: 1, backgroundColor: "transparent" }}
+                  onBlur={(e) => onFieldBlur("phone", e.currentTarget.value)}
+                />
+              </div>
             </Field>
           </div>
 
