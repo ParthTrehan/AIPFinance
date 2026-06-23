@@ -89,7 +89,7 @@ export default function CreditGuide() {
 
       <h2>8. Your privacy</h2>
       <p>
-        We collect your personal information for the purpose of providing credit assistance. Please refer to our <a href="/AIPFinance/privacy-policy">Privacy Policy</a> for details on how we handle your information.
+        We collect your personal information for the purpose of providing credit assistance. Please refer to our <a href="/privacy-policy">Privacy Policy</a> for details on how we handle your information.
       </p>
     </LegalLayout>
   );

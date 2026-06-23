@@ -51,7 +51,7 @@ export default function About() {
           transition: "opacity 0.6s 0.15s ease, transform 0.6s 0.15s ease",
         }}>
           <div style={{ width: 160, height: 160, borderRadius: "50%", overflow: "hidden", margin: "0 auto", border: "4px solid #E2E8F0", boxShadow: "0 4px 20px rgba(15,43,91,0.12)" }}>
-            <img src="/AIPFinance/anita.jpg" alt="Anita Parker Sareen, Accredited Mortgage Broker Melbourne" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+            <img src="/anita.jpg" alt="Anita Parker Sareen, Accredited Mortgage Broker Melbourne" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
           </div>
           <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: "#0F2B5B", marginTop: 20, marginBottom: 4 }}>
             Anita Parker Sareen
