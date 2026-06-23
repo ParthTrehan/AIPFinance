@@ -14,7 +14,7 @@ import { faqs } from "../components/FAQ";
 import CTABanner from "../components/CTABanner";
 import Footer from "../components/Footer";
 
-const SITE_URL = "https://parthtrehan.github.io/AIPFinance";
+const SITE_URL = "https://aipfinance.com.au";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
