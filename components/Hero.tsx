@@ -47,12 +47,15 @@ function HeroVisual() {
               justifyContent: "space-between",
               padding: "0 14px",
               height: 52,
+              minHeight: 52,
+              maxHeight: 52,
+              overflow: "hidden",
               background: best ? "#FFFBF0" : "#F8FAFB",
               borderRadius: 10,
               border: best ? "1.5px solid #D4A017" : "1px solid transparent",
             }}>
-              <div style={{ width: 80, height: 32, display: "flex", alignItems: "center", justifyContent: "flex-start", flexShrink: 0 }}>
-                <img src={img} alt={name} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "left center", display: "block" }} />
+              <div style={{ width: 80, height: 28, overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center" }}>
+                <img src={img} alt={name} width={80} height={28} style={{ width: 80, height: 28, objectFit: "contain", objectPosition: "left center", display: "block" }} />
               </div>
               <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
             </div>
