@@ -1,10 +1,5 @@
 import { IconBrandFacebook, IconBrandLinkedin } from "./TablerIcons";
-
-const suburbs = [
-  "Richmond", "South Yarra", "Carlton", "Fitzroy", "Hawthorn",
-  "Box Hill", "Doncaster", "Glen Waverley", "Coburg", "Preston",
-  "Bundoora", "Werribee", "Point Cook", "Hoppers Crossing", "Dandenong",
-];
+import { suburbs } from "../data/suburbs";
 
 export default function Footer() {
   return (
@@ -55,8 +50,21 @@ export default function Footer() {
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748B", margin: "0 0 10px" }}>
             Serving Melbourne suburbs
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#475569", margin: 0, lineHeight: 1.8 }}>
-            {suburbs.join(" · ")} · and all of Victoria
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#475569", margin: 0, lineHeight: 2 }}>
+            {suburbs.map((s, i) => (
+              <span key={s.slug}>
+                <a
+                  href={`/mortgage-broker/${s.slug}/`}
+                  style={{ color: "#475569", textDecoration: "none", transition: "color 0.15s ease" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#94A3B8")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#475569")}
+                >
+                  {s.name}
+                </a>
+                {i < suburbs.length - 1 && " · "}
+              </span>
+            ))}
+            {" · and all of Victoria"}
           </p>
         </div>
 
