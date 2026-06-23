@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aipfinance.com.au/sitemap.xml
+Sitemap: https://parthtrehan.github.io/AIPFinance/sitemap.xml

@@ -1,10 +1,10 @@
 import React from "react";
 
 const lenders: { name: string; img?: string }[] = [
-  { name: "ANZ",               img: "/logos/anz-logo.png" },
-  { name: "Westpac",           img: "/logos/westpac-logo.jpg" },
-  { name: "NAB",               img: "/logos/nab-logo.svg" },
-  { name: "Macquarie",         img: "/logos/macquarie-bank-logo.png" },
+  { name: "ANZ",               img: "/AIPFinance/logos/anz-logo.png" },
+  { name: "Westpac",           img: "/AIPFinance/logos/westpac-logo.jpg" },
+  { name: "NAB",               img: "/AIPFinance/logos/nab-logo.svg" },
+  { name: "Macquarie",         img: "/AIPFinance/logos/macquarie-bank-logo.png" },
   { name: "Bankwest" },
   { name: "AMP" },
   { name: "Suncorp" },

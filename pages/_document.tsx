@@ -23,8 +23,8 @@ export default function Document() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AIP Finance — Melbourne Mortgage Broker" />
         <meta name="twitter:description" content="Compare 40+ lenders. No broker fee. Free consultation with Anita Parker Sareen." />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="icon" href="/AIPFinance/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/AIPFinance/favicon.svg" />
       </Head>
       <body>
         <Main />
