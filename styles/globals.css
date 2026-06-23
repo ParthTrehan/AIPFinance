@@ -187,3 +187,19 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   from { opacity: 0; transform: translateX(28px); }
   to   { opacity: 1; transform: translateX(0); }
 }
+
+/* Suburb pages */
+.suburb-hero-inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;max-width:1100px;margin:0 auto}
+.suburb-hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){
+  .suburb-hero-card{display:none !important}
+  .suburb-hero-inner{grid-template-columns:1fr !important}
+}
+@media(max-width:640px){
+  .suburb-hero{padding:64px 24px 48px !important}
+  .suburb-hero-btns{flex-direction:column;max-width:320px}
+  .suburb-hero-btns .btn{justify-content:center;text-align:center}
+  .anita-strip{flex-direction:column;text-align:center;align-items:center !important}
+  .anita-strip-actions{width:100% !important}
+  .anita-strip-actions .btn{width:100%;justify-content:center}
+}
