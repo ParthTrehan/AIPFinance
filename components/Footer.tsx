@@ -1,5 +1,17 @@
 import { IconBrandFacebook, IconBrandLinkedin } from "./TablerIcons";
-import { suburbs } from "../data/suburbs";
+
+const footerSuburbs = [
+  { name: "Point Cook", slug: "point-cook" },
+  { name: "Werribee", slug: "werribee" },
+  { name: "Craigieburn", slug: "craigieburn" },
+  { name: "Epping", slug: "epping" },
+  { name: "Berwick", slug: "berwick" },
+  { name: "Pakenham", slug: "pakenham" },
+  { name: "Glen Waverley", slug: "glen-waverley" },
+  { name: "Box Hill", slug: "box-hill" },
+  { name: "Dandenong", slug: "dandenong" },
+  { name: "Frankston", slug: "frankston" },
+];
 
 export default function Footer() {
   return (
@@ -51,7 +63,7 @@ export default function Footer() {
             Serving Melbourne suburbs
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#475569", margin: 0, lineHeight: 2 }}>
-            {suburbs.map((s, i) => (
+            {footerSuburbs.map((s, i) => (
               <span key={s.slug}>
                 <a
                   href={`/mortgage-broker/${s.slug}/`}
@@ -61,10 +73,10 @@ export default function Footer() {
                 >
                   {s.name}
                 </a>
-                {i < suburbs.length - 1 && " · "}
+                {i < footerSuburbs.length - 1 && " · "}
               </span>
             ))}
-            {" · and all of Victoria"}
+            {" · and all of Melbourne"}
           </p>
         </div>
 
