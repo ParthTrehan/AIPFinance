@@ -24,34 +24,37 @@ function HeroVisual() {
         <span style={{ fontSize: 20, color: "#0F2B5B", fontWeight: 600 }}>% p.a.</span>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         {lenders.map(({ name, img, rate, best }) => (
-          <div key={name} style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "10px 14px",
-            background: best ? "#EFF6FF" : "#F8FAFB",
-            borderRadius: 10,
-            border: best ? "1px solid rgba(15,43,91,0.12)" : "1px solid transparent",
-          }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              {best && (
-                <span style={{
-                  fontSize: 9,
-                  fontWeight: 700,
-                  color: "#D4A017",
-                  background: "rgba(212,160,23,0.15)",
-                  padding: "2px 7px",
-                  borderRadius: 20,
-                  letterSpacing: "0.06em",
-                }}>BEST</span>
-              )}
-              <div style={{ width: 72, height: 28, display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+          <div key={name} style={{ position: "relative", marginTop: best ? 8 : 0 }}>
+            {best && (
+              <span style={{
+                position: "absolute",
+                top: -9,
+                left: 12,
+                fontSize: 9,
+                fontWeight: 700,
+                color: "#D4A017",
+                background: "#fff",
+                padding: "0 6px",
+                letterSpacing: "0.1em",
+                zIndex: 1,
+              }}>BEST</span>
+            )}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "10px 14px",
+              background: best ? "#FFFBF0" : "#F8FAFB",
+              borderRadius: 10,
+              border: best ? "1.5px solid #D4A017" : "1px solid transparent",
+            }}>
+              <div style={{ width: 72, height: 28, display: "flex", alignItems: "center" }}>
                 <img src={img} alt={name} style={{ maxHeight: 28, maxWidth: 72, width: "auto", objectFit: "contain", display: "block" }} />
               </div>
+              <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
             </div>
-            <span style={{ fontSize: 15, fontWeight: 700, color: best ? "#0F2B5B" : "#94A3B8" }}>{rate}</span>
           </div>
         ))}
       </div>
