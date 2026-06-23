@@ -3,7 +3,7 @@ import { useEnquiry } from "../context/EnquiryContext";
 import { IconX } from "./TablerIcons";
 
 // Paste your Google Apps Script web app URL here after setup
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5ocOVGdj2evtcszXloq4VQJ-oW9Pj0aCeN9LvYPZksnFtrEymXdbfUTINkGLnVVH-/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFb5pydXgY2z0oZEQmCY-9VvMsNCLyY8tr2Gf5EVIUOs8LehGUFIy67lq-jYYDLf2LAQ/exec";
 
 const loanTypes = [
   "First Home Buyer",
