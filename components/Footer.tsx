@@ -21,7 +21,7 @@ export default function Footer() {
               Melbourne's trusted mortgage broker. No fee, no pressure — just the right loan for you.
             </p>
             <div style={{ display: "flex", gap: 14 }}>
-              <a href="https://www.facebook.com/aipfinance" target="_blank" rel="noreferrer noopener" aria-label="AIP Finance on Facebook" className="social-icon" style={{ color: "var(--color-accent)" }}>
+              <a href="https://www.facebook.com/aipfinance/" target="_blank" rel="noreferrer noopener" aria-label="AIP Finance on Facebook" className="social-icon" style={{ color: "var(--color-accent)" }}>
                 <IconBrandFacebook size={22} />
               </a>
               <a href="https://www.linkedin.com/in/anita-parker-sareen-11270a152" target="_blank" rel="noreferrer noopener" aria-label="Anita Parker Sareen on LinkedIn" className="social-icon" style={{ color: "var(--color-accent)" }}>
