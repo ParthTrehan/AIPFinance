@@ -53,15 +53,15 @@ function HeroVisual() {
               boxSizing: "border-box",
             }}>
               <div style={{
-                width: 88,
-                height: 28,
+                width: 110,
+                height: 36,
                 flexShrink: 0,
                 backgroundColor: "#fff",
                 borderRadius: 6,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "0 6px",
+                padding: "0 8px",
                 boxSizing: "border-box",
               }}>
                 <img
@@ -69,8 +69,8 @@ function HeroVisual() {
                   alt={name}
                   style={{
                     display: "block",
-                    maxWidth: 76,
-                    maxHeight: 22,
+                    maxWidth: 94,
+                    maxHeight: 28,
                     width: "auto",
                     height: "auto",
                     objectFit: "contain",
@@ -118,7 +118,7 @@ export default function Hero() {
 
           <div className="hero-btns" style={{ marginTop: 28, display: "flex", gap: 12, alignItems: "center" }}>
             <button className="btn btn-primary hero-btn" onClick={openModal} style={{ flex: 1, justifyContent: "center" }}>Get a free quote</button>
-            <a className="btn hero-btn" href="tel:+61498241696" style={{ flex: 1, justifyContent: "center", backgroundColor: "var(--color-accent)", color: "#0F2B5B", fontWeight: 700, boxShadow: "0 2px 8px rgba(212,160,23,0.25)" }}>Call now</a>
+            <a className="btn btn-accent hero-btn" href="tel:+61498241696" style={{ flex: 1, justifyContent: "center" }}>Call now</a>
           </div>
         </div>
 

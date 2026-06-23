@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useEnquiry } from "../context/EnquiryContext";
 import { IconX } from "./TablerIcons";
 
-// Paste your Google Apps Script web app URL here after setup
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFb5pydXgY2z0oZEQmCY-9VvMsNCLyY8tr2Gf5EVIUOs8LehGUFIy67lq-jYYDLf2LAQ/exec";
 
 const loanTypes = [
@@ -14,14 +13,28 @@ const loanTypes = [
   "Other",
 ];
 
+type FieldErrors = { phone?: string; email?: string };
+
+function validatePhone(val: string) {
+  const digits = val.replace(/\D/g, "");
+  if (digits.length < 8 || digits.length > 15) return "Enter a valid phone number";
+  if (!/^[\d\s+\-().]{8,20}$/.test(val)) return "Enter a valid phone number";
+  return "";
+}
+
+function validateEmail(val: string) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) return "Enter a valid email address";
+  return "";
+}
+
 export default function EnquiryModal() {
   const { isOpen, closeModal } = useEnquiry();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
-  // Drive enter/exit animation + lock body scroll (including iOS Safari)
   useEffect(() => {
     if (isOpen) {
       setVisible(true);
@@ -41,6 +54,7 @@ export default function EnquiryModal() {
       const t = setTimeout(() => {
         setSubmitted(false);
         setError(false);
+        setFieldErrors({});
         setVisible(false);
       }, 300);
       return () => clearTimeout(t);
@@ -49,17 +63,30 @@ export default function EnquiryModal() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const raw = new FormData(e.currentTarget);
+    const phone = raw.get("phone")?.toString().trim() || "";
+    const email = raw.get("email")?.toString().trim() || "";
+
+    const errors: FieldErrors = {};
+    const phoneErr = validatePhone(phone);
+    const emailErr = validateEmail(email);
+    if (phoneErr) errors.phone = phoneErr;
+    if (emailErr) errors.email = emailErr;
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+
+    setFieldErrors({});
     setLoading(true);
     setError(false);
 
-    const raw = new FormData(e.currentTarget);
     const params = new URLSearchParams();
     raw.forEach((val, key) => params.append(key, val.toString()));
 
     try {
-      // Google Apps Script doesn't support CORS so we use no-cors.
-      // The request still goes through — we just can't read the response,
-      // so we optimistically show success.
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
@@ -82,7 +109,6 @@ export default function EnquiryModal() {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         onClick={closeModal}
         style={{
@@ -122,6 +148,7 @@ export default function EnquiryModal() {
           submitted={submitted}
           loading={loading}
           error={error}
+          fieldErrors={fieldErrors}
           onSubmit={handleSubmit}
           onClose={closeModal}
         />
@@ -153,6 +180,7 @@ export default function EnquiryModal() {
           submitted={submitted}
           loading={loading}
           error={error}
+          fieldErrors={fieldErrors}
           onSubmit={handleSubmit}
           onClose={closeModal}
         />
@@ -165,12 +193,14 @@ function ModalContent({
   submitted,
   loading,
   error,
+  fieldErrors,
   onSubmit,
   onClose,
 }: {
   submitted: boolean;
   loading: boolean;
   error: boolean;
+  fieldErrors: FieldErrors;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   onClose: () => void;
 }) {
@@ -212,13 +242,25 @@ function ModalContent({
             <Field label="Full name *">
               <input name="name" required placeholder="Jane Smith" style={inputStyle} />
             </Field>
-            <Field label="Phone number *">
-              <input name="phone" required type="tel" placeholder="0400 000 000" style={inputStyle} />
+            <Field label="Phone number *" error={fieldErrors.phone}>
+              <input
+                name="phone"
+                required
+                type="tel"
+                placeholder="0400 000 000"
+                style={{ ...inputStyle, borderColor: fieldErrors.phone ? "#EF4444" : "#E2E8F0" }}
+              />
             </Field>
           </div>
 
-          <Field label="Email address *">
-            <input name="email" required type="email" placeholder="jane@email.com" style={inputStyle} />
+          <Field label="Email address *" error={fieldErrors.email}>
+            <input
+              name="email"
+              required
+              type="email"
+              placeholder="jane@email.com"
+              style={{ ...inputStyle, borderColor: fieldErrors.email ? "#EF4444" : "#E2E8F0" }}
+            />
           </Field>
 
           <Field label="What are you looking for?">
@@ -263,13 +305,16 @@ function ModalContent({
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
       <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: "#374151" }}>
         {label}
       </label>
       {children}
+      {error && (
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#EF4444" }}>{error}</span>
+      )}
     </div>
   );
 }
