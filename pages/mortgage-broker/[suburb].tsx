@@ -155,7 +155,7 @@ export default function SuburbPage({ suburb }: { suburb: Suburb }) {
               { q: `How many lenders does AIP Finance compare for ${suburb.name} buyers?`, a: "We compare 40+ lenders including the major banks (ANZ, NAB, Westpac, CBA) and specialist lenders like Macquarie, Bankwest, and more." },
               { q: `How quickly can I get pre-approved in ${suburb.name}?`, a: "Most clients get pre-approval within 48 hours. We do all the paperwork so you can focus on finding your property." },
               { q: "Can you help first home buyers?", a: `Yes — we specialise in helping first home buyers in ${suburb.name} understand their borrowing capacity, government grants, and find the right loan.` },
-              { q: "Can I refinance my existing loan?", a: "Absolutely. If you already own in or around ${suburb.name}, we can review your current rate and compare it against 40+ lenders to find potential savings." },
+              { q: "Can I refinance my existing loan?", a: `Absolutely. If you already own in or around ${suburb.name}, we can review your current rate and compare it against 40+ lenders to find potential savings.` },
             ].map(({ q, a }) => (
               <div key={q} className="card" style={{ padding: "20px 24px" }}>
                 <h3 style={{ fontSize: 15, margin: "0 0 8px", color: "var(--color-primary)" }}>{q}</h3>
