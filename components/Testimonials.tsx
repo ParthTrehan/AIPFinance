@@ -27,6 +27,30 @@ const fallbackReviews: Review[] = [
     initials: "PV",
     meta: "First Home Buyer",
   },
+  {
+    quote: "It's been great to have Anita as our mortgage broker. She is professional, knowledgeable and always responsive thorough out the entire process. I highly recommend her services to anyone looking for reliable support though their mortgage journey. Thanks Anita for your excellent services!!",
+    author: "Shabana Maner",
+    initials: "SM",
+    meta: "Home Loan",
+  },
+  {
+    quote: "Anita is extremely knowledgeable and supportive. Excellent professional advice and support. Highly recommend her for your future financing and re-financing requirements.",
+    author: "Gemson George",
+    initials: "GG",
+    meta: "Refinancing",
+  },
+  {
+    quote: "Have used the services of AIP Finance for the purchase and sale of two homes. Anita is always lovely to deal with, very prompt in getting back to you, explains everything in a clear way (hard when finance is another language to someone like me), and has saved us many headaches by making the process nice and smooth. Was originally recommended Anita by a colleague who'd just purchased their first home.",
+    author: "Brendan Garrett",
+    initials: "BG",
+    meta: "Home Loan",
+  },
+  {
+    quote: "Supports your in the complete journey untill settlement. Provides comparison on rates and financing options available in the market.",
+    author: "Kewmaaz Muthalif",
+    initials: "KM",
+    meta: "Home Loan",
+  },
 ];
 
 const GOOGLE_PLACE_ID = "ChIJZbokfTmKXKQRt1TJK9IMWFM";
