@@ -1,34 +1,141 @@
 import { useState, useEffect, useCallback } from "react";
 import { useInView } from "./useInView";
 
-const testimonials = [
+type Review = {
+  quote: string;
+  author: string;
+  initials: string;
+  meta: string;
+};
+
+const fallbackReviews: Review[] = [
   {
     quote: "Anita is a thorough professional and she really listens to and understands your financial needs. She found us a rate we couldn't have found on our own.",
     author: "Saad Sami",
     initials: "SS",
-    service: "Home Loan",
+    meta: "Home Loan",
   },
   {
     quote: "Great reliable service, quick and efficient, highly recommend it!!! Anita made the whole process so easy from start to finish.",
     author: "Olesea Spicer",
     initials: "OS",
-    service: "Refinancing",
+    meta: "Refinancing",
   },
   {
     quote: "Most reliable and quick service for home loan assistance. Always ready to answer any questions any time. Highly recommended.",
     author: "Paresh Vekariya",
     initials: "PV",
-    service: "First Home Buyer",
+    meta: "First Home Buyer",
   },
 ];
 
-const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/search/AIP+Finance+Melbourne";
+const GOOGLE_PLACE_ID = "ChIJZbokfTmKXKQRt1TJK9IMWFM";
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+const GOOGLE_REVIEWS_URL = `https://www.google.com/maps/place/?q=place_id:${GOOGLE_PLACE_ID}`;
+const REVIEWS_CACHE_KEY = `google-reviews:${GOOGLE_PLACE_ID}`;
+const REVIEWS_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(word => word[0]?.toUpperCase() ?? "")
+    .join("") || "G";
+}
+
+function readReviewsCache(): { reviews: Review[]; rating: number; ratingCount: number } | null {
+  try {
+    const raw = window.localStorage.getItem(REVIEWS_CACHE_KEY);
+    if (!raw) return null;
+    const { data, ts } = JSON.parse(raw);
+    if (Date.now() - ts > REVIEWS_CACHE_TTL_MS) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function writeReviewsCache(data: { reviews: Review[]; rating: number; ratingCount: number }) {
+  try {
+    window.localStorage.setItem(REVIEWS_CACHE_KEY, JSON.stringify({ data, ts: Date.now() }));
+  } catch {
+    // storage unavailable (private browsing, quota) — safe to skip caching
+  }
+}
+
+function useGoogleReviews() {
+  const [reviews, setReviews] = useState<Review[] | null>(null);
+  const [rating, setRating] = useState<number | null>(null);
+  const [ratingCount, setRatingCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!GOOGLE_MAPS_API_KEY) return;
+
+    const cached = readReviewsCache();
+    if (cached) {
+      setReviews(cached.reviews);
+      setRating(cached.rating);
+      setRatingCount(cached.ratingCount);
+      return;
+    }
+
+    let cancelled = false;
+
+    fetch(`https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}`, {
+      headers: {
+        "X-Goog-Api-Key": GOOGLE_MAPS_API_KEY,
+        "X-Goog-FieldMask": "reviews,rating,userRatingCount",
+      },
+    })
+      .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then(data => {
+        if (cancelled) return;
+        const mapped: Review[] = (data.reviews ?? [])
+          .filter((r: any) => r.rating >= 4 && r.text?.text)
+          .map((r: any) => ({
+            quote: r.text.text,
+            author: r.authorAttribution?.displayName ?? "Google user",
+            initials: getInitials(r.authorAttribution?.displayName ?? "Google user"),
+            meta: r.relativePublishTimeDescription ?? "Google review",
+          }));
+
+        if (mapped.length === 0) return;
+
+        const result = {
+          reviews: mapped,
+          rating: data.rating ?? 5,
+          ratingCount: data.userRatingCount ?? mapped.length,
+        };
+        setReviews(result.reviews);
+        setRating(result.rating);
+        setRatingCount(result.ratingCount);
+        writeReviewsCache(result);
+      })
+      .catch(() => {
+        // leave reviews as null — component falls back to the static quotes
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return { reviews, rating, ratingCount };
+}
 
 export default function Testimonials() {
+  const { reviews: liveReviews, rating, ratingCount } = useGoogleReviews();
+  const reviews = liveReviews ?? fallbackReviews;
+
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [animating, setAnimating] = useState(false);
   const { ref, inView } = useInView(0.05);
+
+  useEffect(() => {
+    setCurrent(0);
+  }, [liveReviews]);
 
   const goTo = useCallback((index: number) => {
     if (animating) return;
@@ -39,8 +146,8 @@ export default function Testimonials() {
     }, 250);
   }, [animating]);
 
-  const next = useCallback(() => goTo((current + 1) % testimonials.length), [current, goTo]);
-  const prev = useCallback(() => goTo((current - 1 + testimonials.length) % testimonials.length), [current, goTo]);
+  const next = useCallback(() => goTo((current + 1) % reviews.length), [current, goTo, reviews.length]);
+  const prev = useCallback(() => goTo((current - 1 + reviews.length) % reviews.length), [current, goTo, reviews.length]);
 
   useEffect(() => {
     if (paused) return;
@@ -48,7 +155,7 @@ export default function Testimonials() {
     return () => clearInterval(id);
   }, [paused, next]);
 
-  const t = testimonials[current];
+  const t = reviews[current];
 
   return (
     <section className="testimonials" id="testimonials" style={{ padding: "88px 0" }}>
@@ -92,9 +199,11 @@ export default function Testimonials() {
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
               <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
             </svg>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, color: "#0F2B5B" }}>5.0</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, color: "#0F2B5B" }}>{(rating ?? 5).toFixed(1)}</span>
             <span style={{ color: "#D4A017", fontSize: 13, letterSpacing: 1 }}>★★★★★</span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#64748B" }}>Google Reviews</span>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#64748B" }}>
+              {ratingCount ? `${ratingCount} Google Reviews` : "Google Reviews"}
+            </span>
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "var(--color-accent)", fontWeight: 600 }}>↗</span>
           </a>
         </div>
@@ -156,7 +265,7 @@ export default function Testimonials() {
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 15, color: "#1E293B" }}>{t.author}</div>
                 <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: "#64748B", marginTop: 2 }}>
-                  {t.service} · <span style={{ color: "var(--color-accent)", fontWeight: 600 }}>Verified Google review</span>
+                  {t.meta} · <span style={{ color: "var(--color-accent)", fontWeight: 600 }}>Verified Google review</span>
                 </div>
               </div>
             </div>
@@ -223,7 +332,7 @@ export default function Testimonials() {
 
         {/* Dots */}
         <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 24 }}>
-          {testimonials.map((_, i) => (
+          {reviews.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
