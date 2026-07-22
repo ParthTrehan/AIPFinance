@@ -11,6 +11,8 @@ const footerSuburbs = [
   { name: "Box Hill", slug: "box-hill" },
   { name: "Dandenong", slug: "dandenong" },
   { name: "Frankston", slug: "frankston" },
+  { name: "Sunshine", slug: "sunshine" },
+  { name: "Melton", slug: "melton" },
 ];
 
 export default function Footer() {
