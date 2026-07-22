@@ -77,6 +77,10 @@ h3{font-size:20px;margin:0 0 .5rem;font-weight:600}
   .stats-counter-grid{grid-template-columns:repeat(2,1fr) !important}
   .stats-counter-grid > div{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.1)}
   .stats-counter-grid > div:nth-last-child(-n+2){border-bottom:none}
+  .trust-bar-grid{grid-template-columns:repeat(2,1fr) !important}
+  .trust-bar-grid > div{border-right:none !important;border-bottom:1px solid #E2E8F0}
+  .trust-bar-grid > div:nth-child(odd){border-right:1px solid #E2E8F0 !important}
+  .trust-bar-grid > div:nth-last-child(-n+2){border-bottom:none}
   .stat-value{font-size:38px !important}
   .hero-visual-card{padding:16px !important}
   .hero-btn{font-size:14px !important}

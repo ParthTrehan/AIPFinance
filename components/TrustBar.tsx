@@ -14,6 +14,12 @@ export default function TrustBar() {
   return (
     <section style={{ backgroundColor: "#ffffff", padding: "36px 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: 28 }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--color-accent)", margin: "0 0 8px" }}>
+            AIP Finance at a glance
+          </p>
+          <h2 style={{ margin: 0, fontSize: "clamp(22px, 3vw, 30px)" }}>Fast, local, and free to you</h2>
+        </div>
         <div
           ref={ref}
           style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", borderTop: "1px solid #E2E8F0", borderBottom: "1px solid #E2E8F0" }}
