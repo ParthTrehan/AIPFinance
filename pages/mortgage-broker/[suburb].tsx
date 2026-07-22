@@ -42,6 +42,25 @@ const heroStats = [
   { label: "Client rating", value: "5.0 ★" },
 ];
 
+const angleFaq: Record<Suburb["angle"], { q: string; a: string }> = {
+  growth: {
+    q: "Can you help with a house and land package loan?",
+    a: "Yes — construction and house-and-land loans release funds in stages as the build progresses, which works differently to a standard mortgage. We arrange these regularly for buyers in new estates, and can check your eligibility for Victoria's First Home Owner Grant, which applies to new homes.",
+  },
+  bayside: {
+    q: "Does buying near the water change my loan options?",
+    a: "Coastal and bayside properties can affect a lender's valuation and, in some cases, insurance requirements. We know which lenders are comfortable with bayside property and won't let it slow your application down.",
+  },
+  investor: {
+    q: "Is this a good area for an investment property loan?",
+    a: "Strong transport links and rental demand make this a popular area with investors. We structure investment loans around interest-only periods, offset accounts, and tax-effective setups, comparing 40+ lenders to match your strategy.",
+  },
+  established: {
+    q: "Can you help me finance a renovation or upgrade?",
+    a: "Whether you're extending, renovating, or upgrading to a bigger home, we can structure a loan that supports the build and compare lenders who understand established-suburb valuations.",
+  },
+};
+
 export default function SuburbPage({ suburb }: { suburb: Suburb }) {
   const { openModal } = useEnquiry();
   const pageUrl = `${SITE_URL}/mortgage-broker/${suburb.slug}/`;
@@ -52,6 +71,7 @@ export default function SuburbPage({ suburb }: { suburb: Suburb }) {
     { q: `How quickly can I get pre-approved in ${suburb.name}?`, a: "Most clients get pre-approval within 48 hours. We handle all the paperwork so you can focus on finding your property." },
     { q: "Can you help first home buyers?", a: `Yes — we specialise in helping first home buyers in ${suburb.name} understand their borrowing capacity, access government grants, and find the right loan.` },
     { q: "Can I refinance my existing loan?", a: `Absolutely. If you already own in or around ${suburb.name}, we can review your current rate and compare it against 40+ lenders to find potential savings.` },
+    angleFaq[suburb.angle],
   ];
 
   const schema = [
@@ -71,7 +91,7 @@ export default function SuburbPage({ suburb }: { suburb: Suburb }) {
         addressCountry: "AU",
       },
       areaServed: { "@type": "City", name: suburb.name },
-      aggregateRating: { "@type": "AggregateRating", ratingValue: "5", bestRating: "5", reviewCount: "47" },
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "5", bestRating: "5", reviewCount: "15" },
     },
     {
       "@context": "https://schema.org",
@@ -165,8 +185,8 @@ export default function SuburbPage({ suburb }: { suburb: Suburb }) {
             Why choose us
           </p>
           <h2 style={{ textAlign: "center", marginBottom: 10 }}>Why {suburb.name} residents choose AIP Finance</h2>
-          <p style={{ textAlign: "center", color: "var(--muted)", fontSize: 16, maxWidth: 520, margin: "0 auto 48px" }}>
-            We know {suburb.region} and what local {suburb.buyerType} need.
+          <p style={{ textAlign: "center", color: "var(--muted)", fontSize: 16, maxWidth: 560, margin: "0 auto 48px" }}>
+            From {suburb.landmark} to the daily commute, we know {suburb.name} and what local {suburb.buyerType} need.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 24 }}>
             {benefits.map(({ Icon, title, desc }) => (
