@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useEnquiry } from "../context/EnquiryContext";
 import { IconX } from "./TablerIcons";
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFb5pydXgY2z0oZEQmCY-9VvMsNCLyY8tr2Gf5EVIUOs8LehGUFIy67lq-jYYDLf2LAQ/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQiY2TJNXaZ7nTxzGjMqRV6E1jxx6bIfNycm74NMGehzqr7qxhzqY_1bvt8UNFjTxd7g/exec";
 
 const loanTypes = [
   "First Home Buyer",
