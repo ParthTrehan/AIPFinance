@@ -89,6 +89,7 @@ function HeroVisual() {
         borderTop: "1px solid #E2E8F0",
         display: "flex",
         flexWrap: "wrap",
+        justifyContent: "center",
         gap: "6px 16px",
       }}>
         <span style={{ fontSize: 12, color: "#64748B" }}>40+ lenders compared</span>
