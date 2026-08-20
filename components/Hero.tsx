@@ -2,7 +2,7 @@ import { useEnquiry } from "../context/EnquiryContext";
 
 function HeroVisual() {
   const lenders = [
-    { name: "ANZ",     img: "/logos/anz-logo.png",     rate: "5.89%", best: true },
+    { name: "ANZ",     img: "/logos/anz-logo.png",     rate: "5.98%", best: true },
     { name: "NAB",     img: "/logos/nab-logo.png",     rate: "6.04%", best: false },
     { name: "Westpac", img: "/logos/westpac-logo.png", rate: "6.19%", best: false },
   ];
@@ -20,7 +20,7 @@ function HeroVisual() {
         Best rate found
       </p>
       <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 22 }}>
-        <span className="hero-rate-number" style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 600, color: "#0F2B5B", lineHeight: 1 }}>5.89</span>
+        <span className="hero-rate-number" style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 600, color: "#0F2B5B", lineHeight: 1 }}>5.93</span>
         <span className="hero-rate-suffix" style={{ fontSize: 20, color: "#0F2B5B", fontWeight: 600 }}>% p.a.</span>
       </div>
 
